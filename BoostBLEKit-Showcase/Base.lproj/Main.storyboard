@@ -710,34 +710,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SdX-H2-ja4">
-                                <rect key="frame" x="222" y="96" width="37" height="79"/>
+                            <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SdX-H2-ja4">
+                                <rect key="frame" x="208" y="60" width="64" height="150"/>
                                 <subviews>
-                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HL6-ec-Ami">
-                                        <rect key="frame" x="-6" y="51" width="49" height="32"/>
-                                        <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="n1p-Vp-bGx">
+                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-K5-ns5">
+                                        <rect key="frame" x="-6" y="98" width="76" height="56"/>
+                                        <buttonCell key="cell" type="push" title="➕" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R87-9O-Rm9">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="system" size="32"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="pushPlusButton:" target="XfG-lQ-9wD" id="geh-q3-Jyc"/>
+                                            <action selector="pushPlusButton:" target="XfG-lQ-9wD" id="RsG-fB-1tK"/>
                                         </connections>
                                     </button>
                                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HrP-CC-En8">
-                                        <rect key="frame" x="-6" y="22" width="49" height="32"/>
-                                        <buttonCell key="cell" type="push" title="0" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="h8f-ie-5Zy">
+                                        <rect key="frame" x="-3" y="46" width="70" height="55"/>
+                                        <buttonCell key="cell" type="push" title="●" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="h8f-ie-5Zy">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" size="32" name=".HiraKakuInterface-W3"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="pushStopButton:" target="XfG-lQ-9wD" id="gdQ-au-NVB"/>
                                         </connections>
                                     </button>
                                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pMZ-jr-oc0">
-                                        <rect key="frame" x="-6" y="-7" width="49" height="32"/>
-                                        <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FtH-26-ZEu">
+                                        <rect key="frame" x="-6" y="-7" width="76" height="56"/>
+                                        <buttonCell key="cell" type="push" title="➖" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FtH-26-ZEu">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="system" size="32"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="pushMinusButton:" target="XfG-lQ-9wD" id="sA5-Lv-hN0"/>
@@ -745,7 +745,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="pMZ-jr-oc0" firstAttribute="width" secondItem="HL6-ec-Ami" secondAttribute="width" id="vvw-dJ-xnm"/>
+                                    <constraint firstAttribute="height" constant="150" id="Ix7-g8-XXH"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -759,20 +759,32 @@
                                 </customSpacing>
                             </stackView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nUW-pC-emV">
-                                <rect key="frame" x="265" y="127" width="37" height="17"/>
+                                <rect key="frame" x="290" y="116" width="80" height="39"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="BK0-g9-KVx">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="system" size="32"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HL6-ec-Ami">
+                                <rect key="frame" x="155" y="222" width="171" height="32"/>
+                                <buttonCell key="cell" type="push" title="Connect / Disconnect" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="n1p-Vp-bGx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="pushConnectButton:" target="XfG-lQ-9wD" id="Y56-s2-ElX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="SdX-H2-ja4" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="HNP-x8-3Ny"/>
                             <constraint firstItem="SdX-H2-ja4" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="ViV-Id-jOT"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nUW-pC-emV" secondAttribute="trailing" constant="20" id="Yux-lD-daK"/>
+                            <constraint firstItem="HL6-ec-Ami" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="faH-XQ-NSx"/>
+                            <constraint firstItem="HL6-ec-Ami" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="mJe-EF-JTu"/>
                             <constraint firstItem="nUW-pC-emV" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="reE-f6-2DB"/>
-                            <constraint firstItem="nUW-pC-emV" firstAttribute="leading" secondItem="SdX-H2-ja4" secondAttribute="trailing" constant="8" id="vRg-b2-IGy"/>
+                            <constraint firstItem="nUW-pC-emV" firstAttribute="leading" secondItem="SdX-H2-ja4" secondAttribute="trailing" constant="20" id="vRg-b2-IGy"/>
                         </constraints>
                     </view>
                     <connections>

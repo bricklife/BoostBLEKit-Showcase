@@ -1,0 +1,3 @@
+[submodule "BoostBLEKit"]
+	path = BoostBLEKit
+	url = https://github.com/bricklife/BoostBLEKit
