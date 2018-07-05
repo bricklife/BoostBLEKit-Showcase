@@ -776,19 +776,46 @@
                                     <action selector="pushConnectButton:" target="XfG-lQ-9wD" id="Y56-s2-ElX"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5u-Ht-uuj">
+                                <rect key="frame" x="20" y="20" width="373" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="VU2-R5-46Z">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </textFieldCell>
+                            </textField>
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t8a-0Z-xn1">
+                                <rect key="frame" x="395" y="13" width="71" height="32"/>
+                                <buttonCell key="cell" type="push" title="Send" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XRH-bE-Ktr">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="pushSendButton:" target="XfG-lQ-9wD" id="5Wu-55-KQE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="q5u-Ht-uuj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="3Du-Fg-UDE"/>
+                            <constraint firstAttribute="trailing" secondItem="t8a-0Z-xn1" secondAttribute="trailing" constant="20" id="AS6-sT-ych"/>
+                            <constraint firstItem="t8a-0Z-xn1" firstAttribute="leading" secondItem="q5u-Ht-uuj" secondAttribute="trailing" constant="8" id="E9x-We-Azz"/>
                             <constraint firstItem="SdX-H2-ja4" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="HNP-x8-3Ny"/>
                             <constraint firstItem="SdX-H2-ja4" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="ViV-Id-jOT"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nUW-pC-emV" secondAttribute="trailing" constant="20" id="Yux-lD-daK"/>
                             <constraint firstItem="HL6-ec-Ami" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="faH-XQ-NSx"/>
                             <constraint firstItem="HL6-ec-Ami" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="mJe-EF-JTu"/>
+                            <constraint firstAttribute="bottom" secondItem="t8a-0Z-xn1" secondAttribute="bottom" constant="20" id="nI6-fv-ovj"/>
+                            <constraint firstAttribute="bottom" secondItem="q5u-Ht-uuj" secondAttribute="bottom" constant="20" id="pL1-Ji-9yz"/>
                             <constraint firstItem="nUW-pC-emV" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="reE-f6-2DB"/>
                             <constraint firstItem="nUW-pC-emV" firstAttribute="leading" secondItem="SdX-H2-ja4" secondAttribute="trailing" constant="20" id="vRg-b2-IGy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="label" destination="nUW-pC-emV" id="OMO-na-SK5"/>
+                        <outlet property="textField" destination="q5u-Ht-uuj" id="zde-aO-msT"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

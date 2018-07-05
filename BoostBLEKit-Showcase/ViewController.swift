@@ -19,6 +19,7 @@ struct MoveHubService {
 class ViewController: NSViewController {
     
     @IBOutlet weak var label: NSTextField!
+    @IBOutlet weak var textField: NSTextField!
     
     private var centralManager: CBCentralManager!
     private var peripheral: CBPeripheral?
@@ -40,7 +41,6 @@ class ViewController: NSViewController {
         label.stringValue = "\(power)"
         
         if let command = motors[.A]?.powerCommand(power: power) {
-            print("<", command.data.hexString)
             write(data: command.data)
         }
     }
@@ -90,6 +90,7 @@ class ViewController: NSViewController {
     }
     
     func write(data: Data) {
+        print("<", data.hexString)
         if let peripheral = peripheral, let characteristic = characteristic {
             peripheral.writeValue(data, for: characteristic, type: .withResponse)
         }
@@ -115,6 +116,12 @@ class ViewController: NSViewController {
     
     @IBAction func pushStopButton(_ sender: Any) {
         setPower(power: 0)
+    }
+
+    @IBAction func pushSendButton(_ sender: Any) {
+        if let data = Data(hexString: textField.stringValue) {
+            write(data: data)
+        }
     }
 }
 
