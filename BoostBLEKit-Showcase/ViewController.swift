@@ -40,7 +40,8 @@ class ViewController: NSViewController {
         self.power = power
         label.stringValue = "\(power)"
         
-        if let command = motors[.A]?.powerCommand(power: power) {
+        for motor in motors.values {
+            let command = motor.powerCommand(power: power)
             write(data: command.data)
         }
     }
@@ -85,6 +86,7 @@ class ViewController: NSViewController {
                 motors[port] = motor
             }
         case .disconnected(let port):
+            motors[port] = nil
             print("disconnected:", port)
         }
     }
@@ -92,7 +94,9 @@ class ViewController: NSViewController {
     func write(data: Data) {
         print("<", data.hexString)
         if let peripheral = peripheral, let characteristic = characteristic {
-            peripheral.writeValue(data, for: characteristic, type: .withResponse)
+            DispatchQueue.main.async {
+                peripheral.writeValue(data, for: characteristic, type: .withoutResponse)
+            }
         }
     }
     
