@@ -27,6 +27,7 @@ class ViewController: NSViewController {
     private var characteristic: CBCharacteristic?
     
     private var motors: [BoostBLEKit.Port : Motor] = [:]
+    private var rgbLight: RGBLight?
     private var power: Int8 = 0
     
     override func viewDidLoad() {
@@ -88,6 +89,9 @@ class ViewController: NSViewController {
             if let motor = Motor(port: port, deviceType: deviceType) {
                 motors[port] = motor
             }
+            if let rgbLight = RGBLight(port: port, deviceType: deviceType) {
+                self.rgbLight = rgbLight
+            }
         case .disconnected(let port):
             motors[port] = nil
             print("disconnected:", port)
@@ -128,6 +132,13 @@ class ViewController: NSViewController {
     @IBAction func pushSendButton(_ sender: Any) {
         if let data = Data(hexString: textField.stringValue) {
             write(data: data)
+        }
+    }
+
+    @IBAction func changeColorPopup(_ sender: NSPopUpButton) {
+        if let color = RGBLightColorCommand.Color(rawValue: UInt8(sender.indexOfSelectedItem)),
+            let command = rgbLight?.colorCommand(color: color) {
+            write(data: command.data)
         }
     }
 }

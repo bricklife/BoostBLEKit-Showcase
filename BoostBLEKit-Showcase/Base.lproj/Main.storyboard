@@ -799,6 +799,7 @@
                                         <constraint firstAttribute="trailing" secondItem="nUW-pC-emV" secondAttribute="trailing" constant="20" id="h0p-uR-1WM"/>
                                     </constraints>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box title="Send Command" translatesAutoresizingMaskIntoConstraints="NO" id="YCK-ka-EkL">
                                 <rect key="frame" x="17" y="16" width="634" height="79"/>
@@ -840,12 +841,57 @@
                                         <constraint firstItem="q5u-Ht-uuj" firstAttribute="top" secondItem="kyk-fv-QRH" secondAttribute="top" constant="20" id="rBI-27-Dwo"/>
                                     </constraints>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
+                            </box>
+                            <box title="RGB Light" translatesAutoresizingMaskIntoConstraints="NO" id="rsk-XS-b2l">
+                                <rect key="frame" x="239" y="240" width="147" height="78"/>
+                                <view key="contentView" id="75r-vu-Xvy">
+                                    <rect key="frame" x="2" y="2" width="143" height="61"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G1y-93-XoH">
+                                            <rect key="frame" x="18" y="17" width="108" height="26"/>
+                                            <popUpButtonCell key="cell" type="push" title="Off" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ZQP-qE-ixX" id="WNr-Q0-T6G">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                                <menu key="menu" id="OdJ-G4-Ogb">
+                                                    <items>
+                                                        <menuItem title="Off" id="ZQP-qE-ixX"/>
+                                                        <menuItem title="Pink" id="l1X-Vz-A6N"/>
+                                                        <menuItem title="Purple" id="K7e-Ex-TS5"/>
+                                                        <menuItem title="Blue" id="PS9-Wn-krF"/>
+                                                        <menuItem title="Light Blue" id="mg5-BY-znT"/>
+                                                        <menuItem title="Light Green" id="Gz4-Jx-ZUs"/>
+                                                        <menuItem title="Green" id="yYL-uf-7UG"/>
+                                                        <menuItem title="Yellow" id="zgD-5Y-BsT"/>
+                                                        <menuItem title="Orange" id="WaM-ii-R4n"/>
+                                                        <menuItem title="Red" id="IUv-zQ-QKe"/>
+                                                        <menuItem title="White" id="VlG-uN-LJc"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <action selector="changeColorPopup:" target="XfG-lQ-9wD" id="rih-XL-CF3"/>
+                                            </connections>
+                                        </popUpButton>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="G1y-93-XoH" firstAttribute="leading" secondItem="75r-vu-Xvy" secondAttribute="leading" constant="20" id="VSS-bN-qtX"/>
+                                        <constraint firstAttribute="trailing" secondItem="G1y-93-XoH" secondAttribute="trailing" constant="20" id="efN-ap-hzk"/>
+                                        <constraint firstItem="G1y-93-XoH" firstAttribute="top" secondItem="75r-vu-Xvy" secondAttribute="top" constant="20" id="nJg-Z9-WcV"/>
+                                        <constraint firstAttribute="bottom" secondItem="G1y-93-XoH" secondAttribute="bottom" constant="20" id="yba-Zg-Yda"/>
+                                    </constraints>
+                                </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="rsk-XS-b2l" firstAttribute="top" secondItem="5E0-CZ-Cdg" secondAttribute="top" id="5gc-9A-evW"/>
                             <constraint firstItem="HL6-ec-Ami" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="9lA-PX-wvg"/>
                             <constraint firstItem="5E0-CZ-Cdg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="G0l-2U-yrz"/>
+                            <constraint firstItem="rsk-XS-b2l" firstAttribute="leading" secondItem="5E0-CZ-Cdg" secondAttribute="trailing" constant="20" id="OFU-v5-exo"/>
                             <constraint firstAttribute="trailing" secondItem="YCK-ka-EkL" secondAttribute="trailing" constant="20" id="cEX-Vh-Jca"/>
+                            <constraint firstItem="5E0-CZ-Cdg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="cbP-Bu-SUP"/>
                             <constraint firstItem="HL6-ec-Ami" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="faH-XQ-NSx"/>
                             <constraint firstItem="YCK-ka-EkL" firstAttribute="top" secondItem="5E0-CZ-Cdg" secondAttribute="bottom" constant="20" id="k9y-qK-bgf"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HL6-ec-Ami" secondAttribute="trailing" constant="20" symbolic="YES" id="o5q-Sq-URi"/>
