@@ -18,6 +18,7 @@ struct MoveHubService {
 
 class ViewController: NSViewController {
     
+    @IBOutlet weak var connectButton: NSButton!
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var textField: NSTextField!
     
@@ -60,6 +61,7 @@ class ViewController: NSViewController {
         if self.peripheral == nil {
             self.peripheral = peripheral
             centralManager.connect(peripheral, options: nil)
+            connectButton.title = "Disconnect"
         }
     }
     
@@ -68,6 +70,7 @@ class ViewController: NSViewController {
             centralManager.cancelPeripheralConnection(peripheral)
             self.peripheral = nil
             self.characteristic = nil
+            connectButton.title = "Connect"
         }
     }
     
