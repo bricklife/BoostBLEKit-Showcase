@@ -19,9 +19,10 @@ struct MoveHubService {
 class ViewController: NSViewController {
     
     @IBOutlet weak var connectButton: NSButton!
-    @IBOutlet weak var label: NSTextField!
-    @IBOutlet weak var textField: NSTextField!
-    
+    @IBOutlet weak var powerLabel: NSTextField!
+    @IBOutlet weak var nameTextField: NSTextField!
+    @IBOutlet weak var commandTextField: NSTextField!
+
     private var centralManager: CBCentralManager!
     private var peripheral: CBPeripheral?
     private var characteristic: CBCharacteristic?
@@ -36,11 +37,12 @@ class ViewController: NSViewController {
         centralManager = CBCentralManager(delegate: self, queue: nil)
         
         setPower(power: 0)
+        nameTextField.stringValue = ""
     }
     
     private func setPower(power: Int8) {
         self.power = power
-        label.stringValue = "\(power)"
+        powerLabel.stringValue = "\(power)"
         
         for motor in motors.values {
             let command = motor.powerCommand(power: power)
@@ -130,7 +132,7 @@ class ViewController: NSViewController {
     }
 
     @IBAction func pushSendButton(_ sender: Any) {
-        if let data = Data(hexString: textField.stringValue) {
+        if let data = Data(hexString: commandTextField.stringValue) {
             write(data: data)
         }
     }
@@ -163,21 +165,31 @@ extension ViewController: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print(#function, peripheral)
+        print("RSSI:", RSSI)
+        print("advertisementData:", advertisementData)
         connect(peripheral: peripheral)
         stopScan()
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        nameTextField.stringValue = peripheral.name ?? "Unknown"
         peripheral.delegate = self
         peripheral.discoverServices([MoveHubService.serviceUuid])
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        print(#function, peripheral.identifier, error ?? "nil")
+        if let error = error {
+            print(#function, peripheral, error)
+        }
+        nameTextField.stringValue = ""
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        print(#function, peripheral.identifier, error ?? "nil")
+        if let error = error {
+            print(#function, peripheral, error)
+        }
+        nameTextField.stringValue = ""
     }
 }
 

@@ -712,8 +712,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HL6-ec-Ami">
-                                <rect key="frame" x="14" y="331" width="92" height="55"/>
+                                <rect key="frame" x="14" y="331" width="112" height="55"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="knY-4s-rll"/>
                                     <constraint firstAttribute="height" constant="44" id="vT6-wk-yPt"/>
                                 </constraints>
                                 <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="n1p-Vp-bGx">
@@ -884,25 +885,37 @@
                                 </view>
                                 <font key="titleFont" metaFont="message" size="11"/>
                             </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z4N-HO-Ucc">
+                                <rect key="frame" x="138" y="365" width="512" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name" id="UUa-Fj-xTt">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="rsk-XS-b2l" firstAttribute="top" secondItem="5E0-CZ-Cdg" secondAttribute="top" id="5gc-9A-evW"/>
+                            <constraint firstAttribute="trailing" secondItem="z4N-HO-Ucc" secondAttribute="trailing" constant="20" id="5sb-IX-q0T"/>
                             <constraint firstItem="HL6-ec-Ami" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="9lA-PX-wvg"/>
                             <constraint firstItem="5E0-CZ-Cdg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="G0l-2U-yrz"/>
                             <constraint firstItem="rsk-XS-b2l" firstAttribute="leading" secondItem="5E0-CZ-Cdg" secondAttribute="trailing" constant="20" id="OFU-v5-exo"/>
+                            <constraint firstItem="z4N-HO-Ucc" firstAttribute="leading" secondItem="HL6-ec-Ami" secondAttribute="trailing" constant="20" id="aUG-Ua-XzU"/>
                             <constraint firstAttribute="trailing" secondItem="YCK-ka-EkL" secondAttribute="trailing" constant="20" id="cEX-Vh-Jca"/>
                             <constraint firstItem="5E0-CZ-Cdg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="cbP-Bu-SUP"/>
                             <constraint firstItem="HL6-ec-Ami" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="faH-XQ-NSx"/>
                             <constraint firstItem="YCK-ka-EkL" firstAttribute="top" secondItem="5E0-CZ-Cdg" secondAttribute="bottom" constant="20" id="k9y-qK-bgf"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HL6-ec-Ami" secondAttribute="trailing" constant="20" symbolic="YES" id="o5q-Sq-URi"/>
                             <constraint firstItem="YCK-ka-EkL" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="qVm-ZT-Qf0"/>
+                            <constraint firstItem="z4N-HO-Ucc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="sUL-gO-xyw"/>
                             <constraint firstItem="5E0-CZ-Cdg" firstAttribute="top" secondItem="HL6-ec-Ami" secondAttribute="bottom" constant="20" id="xpT-0y-YLq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="commandTextField" destination="q5u-Ht-uuj" id="Hfp-uQ-mFW"/>
                         <outlet property="connectButton" destination="HL6-ec-Ami" id="1xP-Qp-mVl"/>
-                        <outlet property="label" destination="nUW-pC-emV" id="OMO-na-SK5"/>
-                        <outlet property="textField" destination="q5u-Ht-uuj" id="zde-aO-msT"/>
+                        <outlet property="nameTextField" destination="z4N-HO-Ucc" id="Gan-94-6aY"/>
+                        <outlet property="powerLabel" destination="nUW-pC-emV" id="I6N-MN-kKG"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
