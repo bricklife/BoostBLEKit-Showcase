@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB64EA6A20F4B3FD0077632B /* HubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA6920F4B3FD0077632B /* HubManager.swift */; };
 		CB83BCDE20ED7AA100AA67E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCDD20ED7AA100AA67E1 /* AppDelegate.swift */; };
 		CB83BCE020ED7AA100AA67E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCDF20ED7AA100AA67E1 /* ViewController.swift */; };
 		CB83BCE220ED7AA300AA67E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB83BCE120ED7AA300AA67E1 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB64EA6920F4B3FD0077632B /* HubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubManager.swift; sourceTree = "<group>"; };
 		CB83BCDA20ED7AA100AA67E1 /* BoostBLEKit-Showcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoostBLEKit-Showcase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB83BCDD20ED7AA100AA67E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB83BCDF20ED7AA100AA67E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				CB83BCDD20ED7AA100AA67E1 /* AppDelegate.swift */,
 				CB83BCDF20ED7AA100AA67E1 /* ViewController.swift */,
+				CB64EA6920F4B3FD0077632B /* HubManager.swift */,
 				CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */,
 				CB83BCE120ED7AA300AA67E1 /* Assets.xcassets */,
 				CB83BCE320ED7AA300AA67E1 /* Main.storyboard */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB83BCFD20ED8AB300AA67E1 /* Data+HexString.swift in Sources */,
+				CB64EA6A20F4B3FD0077632B /* HubManager.swift in Sources */,
 				CB83BCE020ED7AA100AA67E1 /* ViewController.swift in Sources */,
 				CB83BCDE20ED7AA100AA67E1 /* AppDelegate.swift in Sources */,
 			);
