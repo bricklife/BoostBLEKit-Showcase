@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  BoostBLEKit-Showcase
+//  BoostBLEKit-Showcase-macOS
 //
-//  Created by Shinichiro Oba on 04/07/2018.
+//  Created by Shinichiro Oba on 10/07/2018.
 //  Copyright © 2018 bricklife.com. All rights reserved.
 //
 

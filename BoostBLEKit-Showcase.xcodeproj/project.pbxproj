@@ -7,44 +7,114 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB64EA6A20F4B3FD0077632B /* HubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA6920F4B3FD0077632B /* HubManager.swift */; };
-		CB83BCDE20ED7AA100AA67E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCDD20ED7AA100AA67E1 /* AppDelegate.swift */; };
-		CB83BCE020ED7AA100AA67E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCDF20ED7AA100AA67E1 /* ViewController.swift */; };
-		CB83BCE220ED7AA300AA67E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB83BCE120ED7AA300AA67E1 /* Assets.xcassets */; };
-		CB83BCE520ED7AA300AA67E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB83BCE320ED7AA300AA67E1 /* Main.storyboard */; };
-		CB83BCF920ED7C8F00AA67E1 /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB83BCF820ED7C8F00AA67E1 /* BoostBLEKit.framework */; };
-		CB83BCFD20ED8AB300AA67E1 /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */; };
+		CB64EA7220F4BDDD0077632B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA7120F4BDDD0077632B /* AppDelegate.swift */; };
+		CB64EA7420F4BDDD0077632B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA7320F4BDDD0077632B /* ViewController.swift */; };
+		CB64EA7720F4BDDD0077632B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB64EA7520F4BDDD0077632B /* Main.storyboard */; };
+		CB64EA7920F4BDDE0077632B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB64EA7820F4BDDE0077632B /* Assets.xcassets */; };
+		CB64EA7C20F4BDDE0077632B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB64EA7A20F4BDDE0077632B /* LaunchScreen.storyboard */; };
+		CB64EA8820F4BE980077632B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA8720F4BE980077632B /* AppDelegate.swift */; };
+		CB64EA8A20F4BE980077632B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA8920F4BE980077632B /* ViewController.swift */; };
+		CB64EA8C20F4BE990077632B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB64EA8B20F4BE990077632B /* Assets.xcassets */; };
+		CB64EA8F20F4BE990077632B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB64EA8D20F4BE990077632B /* Main.storyboard */; };
+		CB64EA9520F4BFE70077632B /* HubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA6920F4B3FD0077632B /* HubManager.swift */; };
+		CB64EA9620F4BFE70077632B /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */; };
+		CB64EA9720F4BFE80077632B /* HubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA6920F4B3FD0077632B /* HubManager.swift */; };
+		CB64EA9820F4BFE80077632B /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */; };
+		CB64EA9B20F4C01A0077632B /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */; };
+		CB64EA9F20F4C2450077632B /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; };
+		CB64EAA020F4C2450077632B /* BoostBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CB64EAA120F4C2460077632B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CB64EAA020F4C2450077632B /* BoostBLEKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CB64EA6920F4B3FD0077632B /* HubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubManager.swift; sourceTree = "<group>"; };
-		CB83BCDA20ED7AA100AA67E1 /* BoostBLEKit-Showcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoostBLEKit-Showcase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB83BCDD20ED7AA100AA67E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB83BCDF20ED7AA100AA67E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CB83BCE120ED7AA300AA67E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CB83BCE420ED7AA300AA67E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CB83BCE620ED7AA300AA67E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB64EA6F20F4BDDD0077632B /* BoostBLEKit-Showcase-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoostBLEKit-Showcase-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB64EA7120F4BDDD0077632B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB64EA7320F4BDDD0077632B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB64EA7620F4BDDD0077632B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB64EA7820F4BDDE0077632B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB64EA7B20F4BDDE0077632B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CB64EA7D20F4BDDE0077632B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB64EA8520F4BE980077632B /* BoostBLEKit-Showcase-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoostBLEKit-Showcase-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB64EA8720F4BE980077632B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB64EA8920F4BE980077632B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB64EA8B20F4BE990077632B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB64EA8E20F4BE990077632B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB64EA9020F4BE990077632B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB64EA9920F4BFFE0077632B /* BoostBLEKit-Showcase-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BoostBLEKit-Showcase-macOS.entitlements"; sourceTree = "<group>"; };
+		CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB64EA9C20F4C11C0077632B /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB83BCF820ED7C8F00AA67E1 /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB83BCFA20ED829300AA67E1 /* BoostBLEKit-Showcase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BoostBLEKit-Showcase.entitlements"; sourceTree = "<group>"; };
 		CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+HexString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CB83BCD720ED7AA100AA67E1 /* Frameworks */ = {
+		CB64EA6C20F4BDDD0077632B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB83BCF920ED7C8F00AA67E1 /* BoostBLEKit.framework in Frameworks */,
+				CB64EA9F20F4C2450077632B /* BoostBLEKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB64EA8220F4BE980077632B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB64EA9B20F4C01A0077632B /* BoostBLEKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB64EA7020F4BDDD0077632B /* BoostBLEKit-Showcase-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CB64EA7120F4BDDD0077632B /* AppDelegate.swift */,
+				CB64EA7320F4BDDD0077632B /* ViewController.swift */,
+				CB64EA7520F4BDDD0077632B /* Main.storyboard */,
+				CB64EA7820F4BDDE0077632B /* Assets.xcassets */,
+				CB64EA7A20F4BDDE0077632B /* LaunchScreen.storyboard */,
+				CB64EA7D20F4BDDE0077632B /* Info.plist */,
+			);
+			path = "BoostBLEKit-Showcase-iOS";
+			sourceTree = "<group>";
+		};
+		CB64EA8620F4BE980077632B /* BoostBLEKit-Showcase-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				CB64EA8720F4BE980077632B /* AppDelegate.swift */,
+				CB64EA8920F4BE980077632B /* ViewController.swift */,
+				CB64EA8B20F4BE990077632B /* Assets.xcassets */,
+				CB64EA8D20F4BE990077632B /* Main.storyboard */,
+				CB64EA9020F4BE990077632B /* Info.plist */,
+				CB64EA9920F4BFFE0077632B /* BoostBLEKit-Showcase-macOS.entitlements */,
+			);
+			path = "BoostBLEKit-Showcase-macOS";
+			sourceTree = "<group>";
+		};
 		CB83BCD120ED7AA100AA67E1 = {
 			isa = PBXGroup;
 			children = (
+				CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */,
 				CB83BCDC20ED7AA100AA67E1 /* BoostBLEKit-Showcase */,
+				CB64EA7020F4BDDD0077632B /* BoostBLEKit-Showcase-iOS */,
+				CB64EA8620F4BE980077632B /* BoostBLEKit-Showcase-macOS */,
 				CB83BCDB20ED7AA100AA67E1 /* Products */,
 				CB83BCF620ED7C6B00AA67E1 /* Frameworks */,
 			);
@@ -53,7 +123,8 @@
 		CB83BCDB20ED7AA100AA67E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CB83BCDA20ED7AA100AA67E1 /* BoostBLEKit-Showcase.app */,
+				CB64EA6F20F4BDDD0077632B /* BoostBLEKit-Showcase-iOS.app */,
+				CB64EA8520F4BE980077632B /* BoostBLEKit-Showcase-macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,14 +132,8 @@
 		CB83BCDC20ED7AA100AA67E1 /* BoostBLEKit-Showcase */ = {
 			isa = PBXGroup;
 			children = (
-				CB83BCDD20ED7AA100AA67E1 /* AppDelegate.swift */,
-				CB83BCDF20ED7AA100AA67E1 /* ViewController.swift */,
 				CB64EA6920F4B3FD0077632B /* HubManager.swift */,
 				CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */,
-				CB83BCE120ED7AA300AA67E1 /* Assets.xcassets */,
-				CB83BCE320ED7AA300AA67E1 /* Main.storyboard */,
-				CB83BCE620ED7AA300AA67E1 /* Info.plist */,
-				CB83BCFA20ED829300AA67E1 /* BoostBLEKit-Showcase.entitlements */,
 			);
 			path = "BoostBLEKit-Showcase";
 			sourceTree = "<group>";
@@ -76,6 +141,8 @@
 		CB83BCF620ED7C6B00AA67E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB64EA9C20F4C11C0077632B /* BoostBLEKit.framework */,
+				CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */,
 				CB83BCF820ED7C8F00AA67E1 /* BoostBLEKit.framework */,
 			);
 			name = Frameworks;
@@ -84,21 +151,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CB83BCD920ED7AA100AA67E1 /* BoostBLEKit-Showcase */ = {
+		CB64EA6E20F4BDDD0077632B /* BoostBLEKit-Showcase-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB83BCEA20ED7AA300AA67E1 /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase" */;
+			buildConfigurationList = CB64EA7E20F4BDDE0077632B /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase-iOS" */;
 			buildPhases = (
-				CB83BCD620ED7AA100AA67E1 /* Sources */,
-				CB83BCD720ED7AA100AA67E1 /* Frameworks */,
-				CB83BCD820ED7AA100AA67E1 /* Resources */,
+				CB64EA6B20F4BDDD0077632B /* Sources */,
+				CB64EA6C20F4BDDD0077632B /* Frameworks */,
+				CB64EA6D20F4BDDD0077632B /* Resources */,
+				CB64EAA120F4C2460077632B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "BoostBLEKit-Showcase";
-			productName = "BoostBLEKit-Showcase";
-			productReference = CB83BCDA20ED7AA100AA67E1 /* BoostBLEKit-Showcase.app */;
+			name = "BoostBLEKit-Showcase-iOS";
+			productName = "BoostBLEKit-Showcase-iOS";
+			productReference = CB64EA6F20F4BDDD0077632B /* BoostBLEKit-Showcase-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB64EA8420F4BE980077632B /* BoostBLEKit-Showcase-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB64EA9220F4BE990077632B /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase-macOS" */;
+			buildPhases = (
+				CB64EA8120F4BE980077632B /* Sources */,
+				CB64EA8220F4BE980077632B /* Frameworks */,
+				CB64EA8320F4BE980077632B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BoostBLEKit-Showcase-macOS";
+			productName = "BoostBLEKit-Showcase-macOS";
+			productReference = CB64EA8520F4BE980077632B /* BoostBLEKit-Showcase-macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +196,10 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = bricklife.com;
 				TargetAttributes = {
-					CB83BCD920ED7AA100AA67E1 = {
+					CB64EA6E20F4BDDD0077632B = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+					CB64EA8420F4BE980077632B = {
 						CreatedOnToolsVersion = 9.3.1;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -134,42 +222,80 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CB83BCD920ED7AA100AA67E1 /* BoostBLEKit-Showcase */,
+				CB64EA6E20F4BDDD0077632B /* BoostBLEKit-Showcase-iOS */,
+				CB64EA8420F4BE980077632B /* BoostBLEKit-Showcase-macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CB83BCD820ED7AA100AA67E1 /* Resources */ = {
+		CB64EA6D20F4BDDD0077632B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB83BCE220ED7AA300AA67E1 /* Assets.xcassets in Resources */,
-				CB83BCE520ED7AA300AA67E1 /* Main.storyboard in Resources */,
+				CB64EA7C20F4BDDE0077632B /* LaunchScreen.storyboard in Resources */,
+				CB64EA7920F4BDDE0077632B /* Assets.xcassets in Resources */,
+				CB64EA7720F4BDDD0077632B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB64EA8320F4BE980077632B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB64EA8C20F4BE990077632B /* Assets.xcassets in Resources */,
+				CB64EA8F20F4BE990077632B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CB83BCD620ED7AA100AA67E1 /* Sources */ = {
+		CB64EA6B20F4BDDD0077632B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB83BCFD20ED8AB300AA67E1 /* Data+HexString.swift in Sources */,
-				CB64EA6A20F4B3FD0077632B /* HubManager.swift in Sources */,
-				CB83BCE020ED7AA100AA67E1 /* ViewController.swift in Sources */,
-				CB83BCDE20ED7AA100AA67E1 /* AppDelegate.swift in Sources */,
+				CB64EA9620F4BFE70077632B /* Data+HexString.swift in Sources */,
+				CB64EA9520F4BFE70077632B /* HubManager.swift in Sources */,
+				CB64EA7420F4BDDD0077632B /* ViewController.swift in Sources */,
+				CB64EA7220F4BDDD0077632B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB64EA8120F4BE980077632B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB64EA9820F4BFE80077632B /* Data+HexString.swift in Sources */,
+				CB64EA9720F4BFE80077632B /* HubManager.swift in Sources */,
+				CB64EA8A20F4BE980077632B /* ViewController.swift in Sources */,
+				CB64EA8820F4BE980077632B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CB83BCE320ED7AA300AA67E1 /* Main.storyboard */ = {
+		CB64EA7520F4BDDD0077632B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CB83BCE420ED7AA300AA67E1 /* Base */,
+				CB64EA7620F4BDDD0077632B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CB64EA7A20F4BDDE0077632B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB64EA7B20F4BDDE0077632B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CB64EA8D20F4BE990077632B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB64EA8E20F4BE990077632B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -177,6 +303,91 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CB64EA7F20F4BDDE0077632B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U8J6E5ZHF2;
+				INFOPLIST_FILE = "BoostBLEKit-Showcase-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.ios.BoostBLEKit-Showcase";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB64EA8020F4BDDE0077632B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U8J6E5ZHF2;
+				INFOPLIST_FILE = "BoostBLEKit-Showcase-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.ios.BoostBLEKit-Showcase";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB64EA9320F4BE990077632B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "BoostBLEKit-Showcase-macOS/BoostBLEKit-Showcase-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = U8J6E5ZHF2;
+				INFOPLIST_FILE = "BoostBLEKit-Showcase-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.mac.BoostBLEKit-Showcase";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		CB64EA9420F4BE990077632B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "BoostBLEKit-Showcase-macOS/BoostBLEKit-Showcase-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = U8J6E5ZHF2;
+				INFOPLIST_FILE = "BoostBLEKit-Showcase-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.mac.BoostBLEKit-Showcase";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		CB83BCE820ED7AA300AA67E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -290,65 +501,32 @@
 			};
 			name = Release;
 		};
-		CB83BCEB20ED7AA300AA67E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "BoostBLEKit-Showcase/BoostBLEKit-Showcase.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = U8J6E5ZHF2;
-				INFOPLIST_FILE = "BoostBLEKit-Showcase/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.mac.BoostBLEKit-Showcase";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		CB83BCEC20ED7AA300AA67E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "BoostBLEKit-Showcase/BoostBLEKit-Showcase.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = U8J6E5ZHF2;
-				INFOPLIST_FILE = "BoostBLEKit-Showcase/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.mac.BoostBLEKit-Showcase";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CB64EA7E20F4BDDE0077632B /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB64EA7F20F4BDDE0077632B /* Debug */,
+				CB64EA8020F4BDDE0077632B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB64EA9220F4BE990077632B /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB64EA9320F4BE990077632B /* Debug */,
+				CB64EA9420F4BE990077632B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CB83BCD520ED7AA100AA67E1 /* Build configuration list for PBXProject "BoostBLEKit-Showcase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB83BCE820ED7AA300AA67E1 /* Debug */,
 				CB83BCE920ED7AA300AA67E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB83BCEA20ED7AA300AA67E1 /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB83BCEB20ED7AA300AA67E1 /* Debug */,
-				CB83BCEC20ED7AA300AA67E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

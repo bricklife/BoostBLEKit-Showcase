@@ -1,21 +1,21 @@
 //
 //  ViewController.swift
-//  BoostBLEKit-Showcase
+//  BoostBLEKit-Showcase-iOS
 //
-//  Created by Shinichiro Oba on 04/07/2018.
+//  Created by Shinichiro Oba on 10/07/2018.
 //  Copyright © 2018 bricklife.com. All rights reserved.
 //
 
-import Cocoa
-import BoostBLEKit
+import UIKit
 import CoreBluetooth
+import BoostBLEKit
 
-class ViewController: NSViewController {
-    
-    @IBOutlet weak var connectButton: NSButton!
-    @IBOutlet weak var powerLabel: NSTextField!
-    @IBOutlet weak var nameTextField: NSTextField!
-    @IBOutlet weak var commandTextField: NSTextField!
+class ViewController: UIViewController {
+
+    @IBOutlet weak var connectButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var powerLabel: UILabel!
+    @IBOutlet weak var commandTextField: UITextField!
     
     private var hubManager: HubManager!
     private var power: Int8 = 0
@@ -26,12 +26,12 @@ class ViewController: NSViewController {
         hubManager = HubManager(delegate: self)
         
         setPower(power: 0)
-        nameTextField.stringValue = ""
+        nameLabel.text = ""
     }
     
     private func setPower(power: Int8) {
         self.power = power
-        powerLabel.stringValue = "\(power)"
+        powerLabel.text = "\(power)"
         
         for motor in hubManager.motors.values {
             let command = motor.powerCommand(power: power)
@@ -62,29 +62,26 @@ class ViewController: NSViewController {
     }
     
     @IBAction func pushSendButton(_ sender: Any) {
-        if let data = Data(hexString: commandTextField.stringValue) {
+        if let data = commandTextField.text.flatMap(Data.init(hexString:)) {
             hubManager.write(data: data)
-        }
-    }
-    
-    @IBAction func changeColorPopup(_ sender: NSPopUpButton) {
-        if let color = RGBLightColorCommand.Color(rawValue: UInt8(sender.indexOfSelectedItem)),
-            let command = hubManager.rgbLight?.colorCommand(color: color) {
-            hubManager.write(data: command.data)
         }
     }
 }
 
 extension ViewController: HubManagerDelegate {
     func didConnect(peripheral: CBPeripheral) {
-        connectButton.title = "Disconnect"
+        connectButton.setTitle("Disconnect", for: .normal)
+        nameLabel.text = peripheral.name ?? "Unknown"
     }
     
     func didFailToConnect(peripheral: CBPeripheral, error: Error?) {
-        connectButton.title = "Connect"
+        connectButton.setTitle("Connect", for: .normal)
+        nameLabel.text = ""
     }
     
     func didDisconnect(peripheral: CBPeripheral, error: Error?) {
-        connectButton.title = "Connect"
+        connectButton.setTitle("Connect", for: .normal)
+        nameLabel.text = ""
     }
 }
+
