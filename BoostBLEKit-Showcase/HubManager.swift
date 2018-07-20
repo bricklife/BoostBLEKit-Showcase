@@ -58,15 +58,13 @@ class HubManager: NSObject {
         guard self.peripheral == nil else { return }
         
         guard let manufacturerData = advertisementData["kCBAdvDataManufacturerData"] as? Data else { return }
-        guard manufacturerData.count > 3 else { return }
+        guard let hubType = HubType(manufacturerData: manufacturerData) else { return }
         
-        switch manufacturerData[3] {
-        case 0x40:
+        switch hubType {
+        case .boost:
             self.connectedHub = Boost.MoveHub()
-        case 0x41:
+        case .poweredUp:
             self.connectedHub = PoweredUp.SmartHub()
-        default:
-            return
         }
         
         self.peripheral = peripheral
