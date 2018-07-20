@@ -33,9 +33,13 @@ class ViewController: NSViewController {
         self.power = power
         powerLabel.stringValue = "\(power)"
         
-        for motor in hubManager.motors.values {
-            let command = motor.powerCommand(power: power)
-            hubManager.write(data: command.data)
+        guard let hub = hubManager.connectedHub else { return }
+        
+        let ports: [BoostBLEKit.Port] = [.A, .B, .C, .D]
+        for port in ports {
+            if let command = hub.powerCommand(port: port, power: power) {
+                hubManager.write(data: command.data)
+            }
         }
     }
     
@@ -68,8 +72,8 @@ class ViewController: NSViewController {
     }
     
     @IBAction func changeColorPopup(_ sender: NSPopUpButton) {
-        if let color = RGBLightColorCommand.Color(rawValue: UInt8(sender.indexOfSelectedItem)),
-            let command = hubManager.rgbLight?.colorCommand(color: color) {
+        guard let color = RGBLightColorCommand.Color(rawValue: UInt8(sender.indexOfSelectedItem)) else { return }
+        if let command = hubManager.connectedHub?.colorCommand(color: color) {
             hubManager.write(data: command.data)
         }
     }

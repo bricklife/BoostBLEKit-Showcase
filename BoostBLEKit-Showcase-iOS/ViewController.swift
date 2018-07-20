@@ -33,9 +33,13 @@ class ViewController: UIViewController {
         self.power = power
         powerLabel.text = "\(power)"
         
-        for motor in hubManager.motors.values {
-            let command = motor.powerCommand(power: power)
-            hubManager.write(data: command.data)
+        guard let hub = hubManager.connectedHub else { return }
+        
+        let ports: [BoostBLEKit.Port] = [.A, .B, .C, .D]
+        for port in ports {
+            if let command = hub.powerCommand(port: port, power: power) {
+                hubManager.write(data: command.data)
+            }
         }
     }
     

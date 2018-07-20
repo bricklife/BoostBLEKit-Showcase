@@ -31,8 +31,7 @@ class HubManager: NSObject {
     private var peripheral: CBPeripheral?
     private var characteristic: CBCharacteristic?
     
-    var motors: [BoostBLEKit.Port : Motor] = [:]
-    var rgbLight: RGBLight?
+    var connectedHub: Hub?
     
     var isConnectedHub: Bool {
         return peripheral != nil
@@ -55,11 +54,23 @@ class HubManager: NSObject {
         centralManager.stopScan()
     }
     
-    private func connect(peripheral: CBPeripheral) {
-        if self.peripheral == nil {
-            self.peripheral = peripheral
-            centralManager.connect(peripheral, options: nil)
+    private func connect(peripheral: CBPeripheral, advertisementData: [String : Any]) {
+        guard self.peripheral == nil else { return }
+        
+        guard let manufacturerData = advertisementData["kCBAdvDataManufacturerData"] as? Data else { return }
+        guard manufacturerData.count > 3 else { return }
+        
+        switch manufacturerData[3] {
+        case 0x40:
+            self.connectedHub = Boost.MoveHub()
+        case 0x41:
+            self.connectedHub = PoweredUp.SmartHub()
+        default:
+            return
         }
+        
+        self.peripheral = peripheral
+        centralManager.connect(peripheral, options: nil)
     }
     
     func disconnect() {
@@ -67,6 +78,7 @@ class HubManager: NSObject {
             centralManager.cancelPeripheralConnection(peripheral)
             self.peripheral = nil
             self.characteristic = nil
+            self.connectedHub = nil
         }
     }
     
@@ -79,17 +91,13 @@ class HubManager: NSObject {
     
     private func receive(notification: BoostBLEKit.Notification) {
         switch notification {
-        case .connected(let port, let deviceType):
-            print("connected:", port, deviceType)
-            if let motor = Motor(port: port, deviceType: deviceType) {
-                motors[port] = motor
-            }
-            if let rgbLight = RGBLight(port: port, deviceType: deviceType) {
-                self.rgbLight = rgbLight
-            }
-        case .disconnected(let port):
-            motors[port] = nil
-            print("disconnected:", port)
+        case .connected(let portId, let deviceType):
+            print("connected:", portId, deviceType)
+            connectedHub?.connectedDevices[portId] = deviceType
+
+        case .disconnected(let portId):
+            print("disconnected:", portId)
+            connectedHub?.connectedDevices[portId] = nil
         }
     }
     
@@ -126,7 +134,7 @@ extension HubManager: CBCentralManagerDelegate {
         print(#function, peripheral)
         print("RSSI:", RSSI)
         print("advertisementData:", advertisementData)
-        connect(peripheral: peripheral)
+        connect(peripheral: peripheral, advertisementData: advertisementData)
         stopScan()
     }
     
