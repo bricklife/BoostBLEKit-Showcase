@@ -91,13 +91,13 @@ class HubManager: NSObject {
     
     private func receive(notification: BoostBLEKit.Notification) {
         switch notification {
-        case .connected(let portId, let deviceType):
-            print("connected:", portId, deviceType)
-            connectedHub?.connectedDevices[portId] = deviceType
+        case .connected(let portId, let ioType):
+            print("connected:", portId, ioType)
+            connectedHub?.connectedIOs[portId] = ioType
 
         case .disconnected(let portId):
             print("disconnected:", portId)
-            connectedHub?.connectedDevices[portId] = nil
+            connectedHub?.connectedIOs[portId] = nil
         }
     }
     

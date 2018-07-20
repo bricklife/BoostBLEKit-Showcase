@@ -37,7 +37,7 @@ class ViewController: NSViewController {
         
         let ports: [BoostBLEKit.Port] = [.A, .B, .C, .D]
         for port in ports {
-            if let command = hub.powerCommand(port: port, power: power) {
+            if let command = hub.motorPowerCommand(port: port, power: power) {
                 hubManager.write(data: command.data)
             }
         }
@@ -73,7 +73,7 @@ class ViewController: NSViewController {
     
     @IBAction func changeColorPopup(_ sender: NSPopUpButton) {
         guard let color = RGBLightColorCommand.Color(rawValue: UInt8(sender.indexOfSelectedItem)) else { return }
-        if let command = hubManager.connectedHub?.colorCommand(color: color) {
+        if let command = hubManager.connectedHub?.rgbLightColorCommand(color: color) {
             hubManager.write(data: command.data)
         }
     }

@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         
         let ports: [BoostBLEKit.Port] = [.A, .B, .C, .D]
         for port in ports {
-            if let command = hub.powerCommand(port: port, power: power) {
+            if let command = hub.motorPowerCommand(port: port, power: power) {
                 hubManager.write(data: command.data)
             }
         }
