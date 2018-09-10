@@ -72,7 +72,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func changeColorPopup(_ sender: NSPopUpButton) {
-        guard let color = RGBLightColorCommand.Color(rawValue: UInt8(sender.indexOfSelectedItem)) else { return }
+        guard let color = BoostBLEKit.Color(rawValue: UInt8(sender.indexOfSelectedItem)) else { return }
         if let command = hubManager.connectedHub?.rgbLightColorCommand(color: color) {
             hubManager.write(data: command.data)
         }

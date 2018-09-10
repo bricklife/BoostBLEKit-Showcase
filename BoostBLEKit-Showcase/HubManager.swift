@@ -32,6 +32,7 @@ class HubManager: NSObject {
     private var characteristic: CBCharacteristic?
     
     var connectedHub: Hub?
+    var sensorValues: [PortId: Data] = [:]
     
     var isConnectedHub: Bool {
         return peripheral != nil
@@ -88,14 +89,23 @@ class HubManager: NSObject {
     }
     
     private func receive(notification: BoostBLEKit.Notification) {
+        print(notification)
         switch notification {
         case .connected(let portId, let ioType):
-            print("connected:", portId, ioType)
             connectedHub?.connectedIOs[portId] = ioType
-
+            if let command = connectedHub?.subscribeCommand(portId: portId) {
+                write(data: command.data)
+            }
+            
         case .disconnected(let portId):
-            print("disconnected:", portId)
             connectedHub?.connectedIOs[portId] = nil
+            sensorValues[portId] = nil
+            if let command = connectedHub?.unsubscribeCommand(portId: portId) {
+                write(data: command.data)
+            }
+            
+        case .sensorValue(let portId, let value):
+            sensorValues[portId] = value
         }
     }
     
