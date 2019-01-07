@@ -66,6 +66,8 @@ class HubManager: NSObject {
             self.connectedHub = Boost.MoveHub()
         case .poweredUp:
             self.connectedHub = PoweredUp.SmartHub()
+        case .duploTrain:
+            self.connectedHub = Duplo.TrainBase()
         }
         
         self.peripheral = peripheral
