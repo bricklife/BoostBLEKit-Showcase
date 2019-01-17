@@ -115,7 +115,7 @@ class HubManager: NSObject {
         print("<W", data.hexString)
         if let peripheral = peripheral, let characteristic = characteristic {
             DispatchQueue.main.async {
-                peripheral.writeValue(data, for: characteristic, type: .withoutResponse)
+                peripheral.writeValue(data, for: characteristic, type: .withResponse)
             }
         }
     }
