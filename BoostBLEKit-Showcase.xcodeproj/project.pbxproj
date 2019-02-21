@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB2986E5221EFAA100164293 /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB2986E4221EFAA100164293 /* BoostBLEKit.framework */; };
+		CB2986E6221EFAA100164293 /* BoostBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB2986E4221EFAA100164293 /* BoostBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CB2986E8221EFAA700164293 /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB2986E7221EFAA700164293 /* BoostBLEKit.framework */; };
+		CB2986E9221EFAA700164293 /* BoostBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB2986E7221EFAA700164293 /* BoostBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CB2986EC221EFAB100164293 /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB2986EB221EFAB100164293 /* BoostBLEKit.framework */; };
+		CB2986ED221EFAB100164293 /* BoostBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB2986EB221EFAB100164293 /* BoostBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CB64EA7220F4BDDD0077632B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA7120F4BDDD0077632B /* AppDelegate.swift */; };
 		CB64EA7420F4BDDD0077632B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA7320F4BDDD0077632B /* ViewController.swift */; };
 		CB64EA7720F4BDDD0077632B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB64EA7520F4BDDD0077632B /* Main.storyboard */; };
@@ -20,26 +26,96 @@
 		CB64EA9620F4BFE70077632B /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */; };
 		CB64EA9720F4BFE80077632B /* HubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA6920F4B3FD0077632B /* HubManager.swift */; };
 		CB64EA9820F4BFE80077632B /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */; };
-		CB64EA9B20F4C01A0077632B /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */; };
-		CB64EA9F20F4C2450077632B /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; };
-		CB64EAA020F4C2450077632B /* BoostBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CBA613C0221EF18100EACF87 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA613BE221EF18100EACF87 /* Interface.storyboard */; };
+		CBA613C2221EF18200EACF87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA613C1221EF18200EACF87 /* Assets.xcassets */; };
+		CBA613C9221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CBA613C8221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CBA613CE221EF18200EACF87 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA613CD221EF18200EACF87 /* InterfaceController.swift */; };
+		CBA613D0221EF18200EACF87 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA613CF221EF18200EACF87 /* ExtensionDelegate.swift */; };
+		CBA613D2221EF18300EACF87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA613D1221EF18300EACF87 /* Assets.xcassets */; };
+		CBA613D6221EF18300EACF87 /* BoostBLEKit-Showcase-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CBA613BC221EF18100EACF87 /* BoostBLEKit-Showcase-watchOS.app */; };
+		CBA613E1221EF7AB00EACF87 /* HubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA6920F4B3FD0077632B /* HubManager.swift */; };
+		CBA613E2221EF7AB00EACF87 /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CBA613CA221EF18200EACF87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB83BCD220ED7AA100AA67E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBA613C7221EF18200EACF87;
+			remoteInfo = "BoostBLEKit-Showcase-watchOS Extension";
+		};
+		CBA613D4221EF18300EACF87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB83BCD220ED7AA100AA67E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBA613BB221EF18100EACF87;
+			remoteInfo = "BoostBLEKit-Showcase-watchOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		CB2986EA221EFAA700164293 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CB2986E9221EFAA700164293 /* BoostBLEKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB2986EE221EFAB200164293 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CB2986ED221EFAB100164293 /* BoostBLEKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CB64EAA120F4C2460077632B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CB64EAA020F4C2450077632B /* BoostBLEKit.framework in Embed Frameworks */,
+				CB2986E6221EFAA100164293 /* BoostBLEKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA613DC221EF18300EACF87 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CBA613C9221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA613DE221EF18300EACF87 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CBA613D6221EF18300EACF87 /* BoostBLEKit-Showcase-watchOS.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB2986E4221EFAA100164293 /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB2986E7221EFAA700164293 /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB2986EB221EFAB100164293 /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB64EA6920F4B3FD0077632B /* HubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubManager.swift; sourceTree = "<group>"; };
 		CB64EA6F20F4BDDD0077632B /* BoostBLEKit-Showcase-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoostBLEKit-Showcase-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB64EA7120F4BDDD0077632B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,11 +131,16 @@
 		CB64EA8E20F4BE990077632B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB64EA9020F4BE990077632B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB64EA9920F4BFFE0077632B /* BoostBLEKit-Showcase-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BoostBLEKit-Showcase-macOS.entitlements"; sourceTree = "<group>"; };
-		CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB64EA9C20F4C11C0077632B /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB83BCF820ED7C8F00AA67E1 /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+HexString.swift"; sourceTree = "<group>"; };
+		CBA613BC221EF18100EACF87 /* BoostBLEKit-Showcase-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoostBLEKit-Showcase-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA613BF221EF18100EACF87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		CBA613C1221EF18200EACF87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBA613C3221EF18200EACF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBA613C8221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BoostBLEKit-Showcase-watchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA613CD221EF18200EACF87 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		CBA613CF221EF18200EACF87 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		CBA613D1221EF18300EACF87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBA613D3221EF18300EACF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB64EA9F20F4C2450077632B /* BoostBLEKit.framework in Frameworks */,
+				CB2986E5221EFAA100164293 /* BoostBLEKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +156,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB64EA9B20F4C01A0077632B /* BoostBLEKit.framework in Frameworks */,
+				CB2986E8221EFAA700164293 /* BoostBLEKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA613C5221EF18200EACF87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB2986EC221EFAB100164293 /* BoostBLEKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,10 +200,14 @@
 		CB83BCD120ED7AA100AA67E1 = {
 			isa = PBXGroup;
 			children = (
-				CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */,
+				CB2986EB221EFAB100164293 /* BoostBLEKit.framework */,
+				CB2986E7221EFAA700164293 /* BoostBLEKit.framework */,
+				CB2986E4221EFAA100164293 /* BoostBLEKit.framework */,
 				CB83BCDC20ED7AA100AA67E1 /* BoostBLEKit-Showcase */,
 				CB64EA7020F4BDDD0077632B /* BoostBLEKit-Showcase-iOS */,
 				CB64EA8620F4BE980077632B /* BoostBLEKit-Showcase-macOS */,
+				CBA613BD221EF18100EACF87 /* BoostBLEKit-Showcase-watchOS */,
+				CBA613CC221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension */,
 				CB83BCDB20ED7AA100AA67E1 /* Products */,
 				CB83BCF620ED7C6B00AA67E1 /* Frameworks */,
 			);
@@ -125,6 +218,8 @@
 			children = (
 				CB64EA6F20F4BDDD0077632B /* BoostBLEKit-Showcase-iOS.app */,
 				CB64EA8520F4BE980077632B /* BoostBLEKit-Showcase-macOS.app */,
+				CBA613BC221EF18100EACF87 /* BoostBLEKit-Showcase-watchOS.app */,
+				CBA613C8221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,11 +236,29 @@
 		CB83BCF620ED7C6B00AA67E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CB64EA9C20F4C11C0077632B /* BoostBLEKit.framework */,
-				CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */,
-				CB83BCF820ED7C8F00AA67E1 /* BoostBLEKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBA613BD221EF18100EACF87 /* BoostBLEKit-Showcase-watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBA613BE221EF18100EACF87 /* Interface.storyboard */,
+				CBA613C1221EF18200EACF87 /* Assets.xcassets */,
+				CBA613C3221EF18200EACF87 /* Info.plist */,
+			);
+			path = "BoostBLEKit-Showcase-watchOS";
+			sourceTree = "<group>";
+		};
+		CBA613CC221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CBA613CD221EF18200EACF87 /* InterfaceController.swift */,
+				CBA613CF221EF18200EACF87 /* ExtensionDelegate.swift */,
+				CBA613D1221EF18300EACF87 /* Assets.xcassets */,
+				CBA613D3221EF18300EACF87 /* Info.plist */,
+			);
+			path = "BoostBLEKit-Showcase-watchOS Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,10 +272,12 @@
 				CB64EA6C20F4BDDD0077632B /* Frameworks */,
 				CB64EA6D20F4BDDD0077632B /* Resources */,
 				CB64EAA120F4C2460077632B /* Embed Frameworks */,
+				CBA613DE221EF18300EACF87 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CBA613D5221EF18300EACF87 /* PBXTargetDependency */,
 			);
 			name = "BoostBLEKit-Showcase-iOS";
 			productName = "BoostBLEKit-Showcase-iOS";
@@ -176,6 +291,7 @@
 				CB64EA8120F4BE980077632B /* Sources */,
 				CB64EA8220F4BE980077632B /* Frameworks */,
 				CB64EA8320F4BE980077632B /* Resources */,
+				CB2986EA221EFAA700164293 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,13 +302,48 @@
 			productReference = CB64EA8520F4BE980077632B /* BoostBLEKit-Showcase-macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CBA613BB221EF18100EACF87 /* BoostBLEKit-Showcase-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBA613DD221EF18300EACF87 /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase-watchOS" */;
+			buildPhases = (
+				CBA613BA221EF18100EACF87 /* Resources */,
+				CBA613DC221EF18300EACF87 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBA613CB221EF18200EACF87 /* PBXTargetDependency */,
+			);
+			name = "BoostBLEKit-Showcase-watchOS";
+			productName = "BoostBLEKit-Showcase-watchOS";
+			productReference = CBA613BC221EF18100EACF87 /* BoostBLEKit-Showcase-watchOS.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		CBA613C7221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBA613DB221EF18300EACF87 /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase-watchOS Extension" */;
+			buildPhases = (
+				CBA613C4221EF18200EACF87 /* Sources */,
+				CBA613C5221EF18200EACF87 /* Frameworks */,
+				CBA613C6221EF18200EACF87 /* Resources */,
+				CB2986EE221EFAB200164293 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BoostBLEKit-Showcase-watchOS Extension";
+			productName = "BoostBLEKit-Showcase-watchOS Extension";
+			productReference = CBA613C8221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CB83BCD220ED7AA100AA67E1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = bricklife.com;
 				TargetAttributes = {
@@ -206,6 +357,12 @@
 								enabled = 1;
 							};
 						};
+					};
+					CBA613BB221EF18100EACF87 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					CBA613C7221EF18200EACF87 = {
+						CreatedOnToolsVersion = 10.1;
 					};
 				};
 			};
@@ -224,6 +381,8 @@
 			targets = (
 				CB64EA6E20F4BDDD0077632B /* BoostBLEKit-Showcase-iOS */,
 				CB64EA8420F4BE980077632B /* BoostBLEKit-Showcase-macOS */,
+				CBA613BB221EF18100EACF87 /* BoostBLEKit-Showcase-watchOS */,
+				CBA613C7221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +404,23 @@
 			files = (
 				CB64EA8C20F4BE990077632B /* Assets.xcassets in Resources */,
 				CB64EA8F20F4BE990077632B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA613BA221EF18100EACF87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBA613C2221EF18200EACF87 /* Assets.xcassets in Resources */,
+				CBA613C0221EF18100EACF87 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA613C6221EF18200EACF87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBA613D2221EF18300EACF87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +449,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CBA613C4221EF18200EACF87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBA613E2221EF7AB00EACF87 /* Data+HexString.swift in Sources */,
+				CBA613E1221EF7AB00EACF87 /* HubManager.swift in Sources */,
+				CBA613D0221EF18200EACF87 /* ExtensionDelegate.swift in Sources */,
+				CBA613CE221EF18200EACF87 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBA613CB221EF18200EACF87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBA613C7221EF18200EACF87 /* BoostBLEKit-Showcase-watchOS Extension */;
+			targetProxy = CBA613CA221EF18200EACF87 /* PBXContainerItemProxy */;
+		};
+		CBA613D5221EF18300EACF87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBA613BB221EF18100EACF87 /* BoostBLEKit-Showcase-watchOS */;
+			targetProxy = CBA613D4221EF18300EACF87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CB64EA7520F4BDDD0077632B /* Main.storyboard */ = {
@@ -298,6 +498,14 @@
 				CB64EA8E20F4BE990077632B /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CBA613BE221EF18100EACF87 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBA613BF221EF18100EACF87 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -501,6 +709,102 @@
 			};
 			name = Release;
 		};
+		CBA613D7221EF18300EACF87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UV6TAX3ANB;
+				IBSC_MODULE = BoostBLEKit_Showcase_watchOS_Extension;
+				INFOPLIST_FILE = "BoostBLEKit-Showcase-watchOS/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.ios.BoostBLEKit-Showcase.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		CBA613D8221EF18300EACF87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UV6TAX3ANB;
+				IBSC_MODULE = BoostBLEKit_Showcase_watchOS_Extension;
+				INFOPLIST_FILE = "BoostBLEKit-Showcase-watchOS/Info.plist";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.ios.BoostBLEKit-Showcase.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		CBA613D9221EF18300EACF87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UV6TAX3ANB;
+				INFOPLIST_FILE = "BoostBLEKit-Showcase-watchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.ios.BoostBLEKit-Showcase.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		CBA613DA221EF18300EACF87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UV6TAX3ANB;
+				INFOPLIST_FILE = "BoostBLEKit-Showcase-watchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricklife.ios.BoostBLEKit-Showcase.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -527,6 +831,24 @@
 			buildConfigurations = (
 				CB83BCE820ED7AA300AA67E1 /* Debug */,
 				CB83BCE920ED7AA300AA67E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBA613DB221EF18300EACF87 /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase-watchOS Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBA613D9221EF18300EACF87 /* Debug */,
+				CBA613DA221EF18300EACF87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBA613DD221EF18300EACF87 /* Build configuration list for PBXNativeTarget "BoostBLEKit-Showcase-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBA613D7221EF18300EACF87 /* Debug */,
+				CBA613D8221EF18300EACF87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

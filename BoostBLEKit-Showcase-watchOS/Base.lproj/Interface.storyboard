@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="BoostBLEKit_Showcase_watchOS" customModuleProvider="target">
+                    <items>
+                        <button width="1" height="20" alignment="left" title="Connect" id="UCj-pX-gqb">
+                            <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="pushConnectButton" destination="AgC-eL-Hgc" id="CkB-7K-bAq"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="left" layout="vertical" id="vP0-7l-GAk">
+                            <items>
+                                <button width="0.59999999999999998" alignment="left" title="+" id="4yN-W2-n7q">
+                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                    <connections>
+                                        <action selector="pushPlusButton" destination="AgC-eL-Hgc" id="cER-xt-iEv"/>
+                                    </connections>
+                                </button>
+                                <group width="1" alignment="left" id="Rzp-Im-RzN">
+                                    <items>
+                                        <button width="0.59999999999999998" alignment="left" title="●" id="pB4-nK-Bfn">
+                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                            <connections>
+                                                <action selector="pushStopButton" destination="AgC-eL-Hgc" id="fyz-O8-PX6"/>
+                                            </connections>
+                                        </button>
+                                        <label width="0.40000000000000002" height="1" alignment="left" text="0" textAlignment="center" id="0rz-5L-a99"/>
+                                    </items>
+                                </group>
+                                <button width="0.59999999999999998" alignment="left" title="-" id="acp-ZB-HIF">
+                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                    <connections>
+                                        <action selector="pushMinusButton" destination="AgC-eL-Hgc" id="D7q-T4-hHt"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="connectButton" destination="UCj-pX-gqb" id="hQt-NC-DWc"/>
+                        <outlet property="powerLabel" destination="0rz-5L-a99" id="w2c-UQ-Dl6"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+    </scenes>
+</document>
