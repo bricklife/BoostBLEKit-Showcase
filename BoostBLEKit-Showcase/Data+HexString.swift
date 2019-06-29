@@ -2,7 +2,7 @@
 //  Data+HexString.swift
 //  BoostRemote
 //
-//  Created by ooba on 10/08/2017.
+//  Created by Shinichiro Oba on 10/08/2017.
 //  Copyright © 2017 bricklife.com. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ extension Data {
         
         let bytes = zip(even, odd).compactMap { UInt8(String([$0.0, $0.1]), radix: 16) }
         
-        self.init(bytes: bytes)
+        self.init(bytes)
     }
     
     public var hexString: String {
