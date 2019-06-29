@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -621,7 +620,7 @@
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
-                                                <action selector="toggleSourceList:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
+                                                <action selector="toggleSidebar:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -686,7 +685,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="BoostBLEKit Showcase" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="BoostBLEKit Showcase" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="713" height="461"/>
@@ -726,16 +725,16 @@
                                 </connections>
                             </button>
                             <box title="Motor" translatesAutoresizingMaskIntoConstraints="NO" id="5E0-CZ-Cdg">
-                                <rect key="frame" x="17" y="111" width="208" height="207"/>
+                                <rect key="frame" x="17" y="110" width="206" height="208"/>
                                 <view key="contentView" id="wYp-uQ-xI1">
-                                    <rect key="frame" x="2" y="2" width="204" height="190"/>
+                                    <rect key="frame" x="3" y="3" width="200" height="190"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SdX-H2-ja4">
-                                            <rect key="frame" x="20" y="20" width="64" height="150"/>
+                                            <rect key="frame" x="20" y="20" width="60" height="150"/>
                                             <subviews>
                                                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-K5-ns5">
-                                                    <rect key="frame" x="-6" y="98" width="76" height="56"/>
+                                                    <rect key="frame" x="-6" y="98" width="72" height="56"/>
                                                     <buttonCell key="cell" type="push" title="➕" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R87-9O-Rm9">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system" size="32"/>
@@ -745,7 +744,7 @@
                                                     </connections>
                                                 </button>
                                                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HrP-CC-En8">
-                                                    <rect key="frame" x="-3" y="46" width="70" height="55"/>
+                                                    <rect key="frame" x="-5" y="46" width="70" height="55"/>
                                                     <buttonCell key="cell" type="push" title="●" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="h8f-ie-5Zy">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="32" name=".HiraKakuInterface-W3"/>
@@ -755,7 +754,7 @@
                                                     </connections>
                                                 </button>
                                                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pMZ-jr-oc0">
-                                                    <rect key="frame" x="-6" y="-7" width="76" height="56"/>
+                                                    <rect key="frame" x="-6" y="-7" width="72" height="56"/>
                                                     <buttonCell key="cell" type="push" title="➖" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FtH-26-ZEu">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system" size="32"/>
@@ -780,7 +779,7 @@
                                             </customSpacing>
                                         </stackView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nUW-pC-emV">
-                                            <rect key="frame" x="102" y="76" width="84" height="39"/>
+                                            <rect key="frame" x="98" y="76" width="84" height="39"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="BLD-nd-wil"/>
                                             </constraints>
@@ -802,16 +801,16 @@
                                 </view>
                             </box>
                             <box title="Send Command" translatesAutoresizingMaskIntoConstraints="NO" id="YCK-ka-EkL">
-                                <rect key="frame" x="17" y="16" width="634" height="79"/>
+                                <rect key="frame" x="17" y="14" width="634" height="80"/>
                                 <view key="contentView" id="kyk-fv-QRH">
-                                    <rect key="frame" x="2" y="2" width="630" height="62"/>
+                                    <rect key="frame" x="3" y="3" width="628" height="62"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5u-Ht-uuj">
-                                            <rect key="frame" x="20" y="20" width="511" height="22"/>
+                                            <rect key="frame" x="20" y="20" width="509" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="VU2-R5-46Z">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 <allowedInputSourceLocales>
                                                     <string>NSAllRomanInputSourcesLocaleIdentifier</string>
@@ -819,7 +818,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t8a-0Z-xn1">
-                                            <rect key="frame" x="545" y="8" width="71" height="43"/>
+                                            <rect key="frame" x="543" y="8" width="71" height="43"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="Vth-AV-3cs"/>
                                             </constraints>
@@ -843,13 +842,13 @@
                                 </view>
                             </box>
                             <box title="RGB Light" translatesAutoresizingMaskIntoConstraints="NO" id="rsk-XS-b2l">
-                                <rect key="frame" x="239" y="240" width="147" height="78"/>
+                                <rect key="frame" x="237" y="239" width="150" height="79"/>
                                 <view key="contentView" id="75r-vu-Xvy">
-                                    <rect key="frame" x="2" y="2" width="143" height="61"/>
+                                    <rect key="frame" x="3" y="3" width="144" height="61"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G1y-93-XoH">
-                                            <rect key="frame" x="18" y="17" width="108" height="26"/>
+                                            <rect key="frame" x="18" y="17" width="109" height="25"/>
                                             <popUpButtonCell key="cell" type="push" title="Off" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ZQP-qE-ixX" id="WNr-Q0-T6G">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
@@ -890,18 +889,41 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KkI-5H-LEt">
+                                <rect key="frame" x="138" y="347" width="512" height="14"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Firmware Version" id="0Ze-Dr-2ta">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Dt-V3-NNB">
+                                <rect key="frame" x="138" y="329" width="512" height="14"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Battery Voltage [%]" id="3lU-kK-7Y0">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="KkI-5H-LEt" firstAttribute="leading" secondItem="z4N-HO-Ucc" secondAttribute="leading" id="4kj-qM-L8q"/>
+                            <constraint firstItem="KkI-5H-LEt" firstAttribute="leading" secondItem="HL6-ec-Ami" secondAttribute="trailing" constant="20" id="531-cq-WPO"/>
                             <constraint firstItem="rsk-XS-b2l" firstAttribute="top" secondItem="5E0-CZ-Cdg" secondAttribute="top" id="5gc-9A-evW"/>
                             <constraint firstAttribute="trailing" secondItem="z4N-HO-Ucc" secondAttribute="trailing" constant="20" id="5sb-IX-q0T"/>
+                            <constraint firstItem="KkI-5H-LEt" firstAttribute="top" secondItem="z4N-HO-Ucc" secondAttribute="bottom" constant="4" id="62x-zF-dt1"/>
                             <constraint firstItem="HL6-ec-Ami" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="9lA-PX-wvg"/>
                             <constraint firstItem="5E0-CZ-Cdg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="G0l-2U-yrz"/>
                             <constraint firstItem="rsk-XS-b2l" firstAttribute="leading" secondItem="5E0-CZ-Cdg" secondAttribute="trailing" constant="20" id="OFU-v5-exo"/>
+                            <constraint firstItem="6Dt-V3-NNB" firstAttribute="leading" secondItem="KkI-5H-LEt" secondAttribute="leading" id="Udl-1E-W9I"/>
                             <constraint firstItem="z4N-HO-Ucc" firstAttribute="leading" secondItem="HL6-ec-Ami" secondAttribute="trailing" constant="20" id="aUG-Ua-XzU"/>
                             <constraint firstAttribute="trailing" secondItem="YCK-ka-EkL" secondAttribute="trailing" constant="20" id="cEX-Vh-Jca"/>
                             <constraint firstItem="5E0-CZ-Cdg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="cbP-Bu-SUP"/>
+                            <constraint firstItem="6Dt-V3-NNB" firstAttribute="top" secondItem="KkI-5H-LEt" secondAttribute="bottom" constant="4" id="ceU-a5-HEi"/>
+                            <constraint firstAttribute="trailing" secondItem="6Dt-V3-NNB" secondAttribute="trailing" constant="20" id="du6-cG-SMp"/>
                             <constraint firstItem="HL6-ec-Ami" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="faH-XQ-NSx"/>
                             <constraint firstItem="YCK-ka-EkL" firstAttribute="top" secondItem="5E0-CZ-Cdg" secondAttribute="bottom" constant="20" id="k9y-qK-bgf"/>
+                            <constraint firstAttribute="trailing" secondItem="KkI-5H-LEt" secondAttribute="trailing" constant="20" id="mYc-Gd-IS2"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HL6-ec-Ami" secondAttribute="trailing" constant="20" symbolic="YES" id="o5q-Sq-URi"/>
                             <constraint firstItem="YCK-ka-EkL" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="qVm-ZT-Qf0"/>
                             <constraint firstItem="z4N-HO-Ucc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="sUL-gO-xyw"/>
@@ -909,8 +931,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="batteryLabel" destination="6Dt-V3-NNB" id="4So-2J-j3V"/>
                         <outlet property="commandTextField" destination="q5u-Ht-uuj" id="Hfp-uQ-mFW"/>
                         <outlet property="connectButton" destination="HL6-ec-Ami" id="1xP-Qp-mVl"/>
+                        <outlet property="firmwareVersionLabel" destination="KkI-5H-LEt" id="jXF-ey-jCe"/>
                         <outlet property="nameLabel" destination="z4N-HO-Ucc" id="Wvk-Ne-dAX"/>
                         <outlet property="powerLabel" destination="nUW-pC-emV" id="I6N-MN-kKG"/>
                     </connections>

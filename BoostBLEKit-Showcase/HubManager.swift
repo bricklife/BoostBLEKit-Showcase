@@ -21,6 +21,7 @@ protocol HubManagerDelegate: class {
     func didConnect(peripheral: CBPeripheral)
     func didFailToConnect(peripheral: CBPeripheral, error: Error?)
     func didDisconnect(peripheral: CBPeripheral, error: Error?)
+    func didUpdate(hubProperty: HubProperty, value: HubProperty.Value)
 }
 
 class HubManager: NSObject {
@@ -93,6 +94,9 @@ class HubManager: NSObject {
     private func receive(notification: BoostBLEKit.Notification) {
         print(notification)
         switch notification {
+        case .hubProperty(let hubProperty, let value):
+            delegate?.didUpdate(hubProperty: hubProperty, value: value)
+            
         case .connected(let portId, let ioType):
             connectedHub?.connectedIOs[portId] = ioType
             if let command = connectedHub?.subscribeCommand(portId: portId) {
@@ -137,6 +141,8 @@ extension HubManager: CBCentralManagerDelegate {
             print("poweredOff")
         case .poweredOn:
             print("poweredOn")
+        @unknown default:
+            print("@unknown default")
         }
     }
     
@@ -180,6 +186,12 @@ extension HubManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if let characteristic = service.characteristics?.first(where: { $0.uuid == MoveHubService.characteristicUuid }) {
             set(characteristic: characteristic)
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.write(data: HubPropertiesCommand(property: .advertisingName, operation: .enableUpdates).data)
+                self.write(data: HubPropertiesCommand(property: .firmwareVersion, operation: .requestUpdate).data)
+                self.write(data: HubPropertiesCommand(property: .batteryVoltage, operation: .enableUpdates).data)
+            }
         }
     }
     

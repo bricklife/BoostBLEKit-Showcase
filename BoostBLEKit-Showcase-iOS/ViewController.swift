@@ -14,6 +14,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var firmwareVersionLabel: UILabel!
+    @IBOutlet weak var batteryLabel: UILabel!
     @IBOutlet weak var powerLabel: UILabel!
     @IBOutlet weak var commandTextField: UITextField!
     
@@ -25,8 +27,15 @@ class ViewController: UIViewController {
         
         hubManager = HubManager(delegate: self)
         
+        resetLabels()
+        
         setPower(power: 0)
+    }
+    
+    private func resetLabels() {
         nameLabel.text = ""
+        firmwareVersionLabel.text = ""
+        batteryLabel.text = ""
     }
     
     private func setPower(power: Int8) {
@@ -80,12 +89,25 @@ extension ViewController: HubManagerDelegate {
     
     func didFailToConnect(peripheral: CBPeripheral, error: Error?) {
         connectButton.setTitle("Connect", for: .normal)
-        nameLabel.text = ""
+        resetLabels()
     }
     
     func didDisconnect(peripheral: CBPeripheral, error: Error?) {
         connectButton.setTitle("Connect", for: .normal)
-        nameLabel.text = ""
+        resetLabels()
+    }
+    
+    func didUpdate(hubProperty: HubProperty, value: HubProperty.Value) {
+        switch hubProperty {
+        case .advertisingName:
+            nameLabel.text = value.stringValue
+        case .firmwareVersion:
+            firmwareVersionLabel.text = "F/W: \(value.stringValue)"
+        case .batteryVoltage:
+            batteryLabel.text = "Battery: \(value.stringValue) %"
+        default:
+            break
+        }
     }
 }
 

@@ -13,8 +13,10 @@ import BoostBLEKit
 class ViewController: NSViewController {
     
     @IBOutlet weak var connectButton: NSButton!
-    @IBOutlet weak var powerLabel: NSTextField!
     @IBOutlet weak var nameLabel: NSTextField!
+    @IBOutlet weak var firmwareVersionLabel: NSTextField!
+    @IBOutlet weak var batteryLabel: NSTextField!
+    @IBOutlet weak var powerLabel: NSTextField!
     @IBOutlet weak var commandTextField: NSTextField!
     
     private var hubManager: HubManager!
@@ -25,8 +27,15 @@ class ViewController: NSViewController {
         
         hubManager = HubManager(delegate: self)
         
+        resetLabels()
+        
         setPower(power: 0)
+    }
+    
+    private func resetLabels() {
         nameLabel.stringValue = ""
+        firmwareVersionLabel.stringValue = ""
+        batteryLabel.stringValue = ""
     }
     
     private func setPower(power: Int8) {
@@ -87,11 +96,24 @@ extension ViewController: HubManagerDelegate {
     
     func didFailToConnect(peripheral: CBPeripheral, error: Error?) {
         connectButton.title = "Connect"
-        nameLabel.stringValue = ""
+        resetLabels()
     }
     
     func didDisconnect(peripheral: CBPeripheral, error: Error?) {
         connectButton.title = "Connect"
-        nameLabel.stringValue = ""
+        resetLabels()
+    }
+    
+    func didUpdate(hubProperty: HubProperty, value: HubProperty.Value) {
+        switch hubProperty {
+        case .advertisingName:
+            nameLabel.stringValue = value.stringValue
+        case .firmwareVersion:
+            firmwareVersionLabel.stringValue = "F/W: \(value.stringValue)"
+        case .batteryVoltage:
+            batteryLabel.stringValue = "Battery: \(value.stringValue) %"
+        default:
+            break
+        }
     }
 }
