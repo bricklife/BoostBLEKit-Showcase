@@ -33,6 +33,7 @@ class HubManager: NSObject {
     private var characteristic: CBCharacteristic?
     
     var connectedHub: Hub?
+    var isInitializingHub = false
     var sensorValues: [PortId: Data] = [:]
     
     var isConnectedHub: Bool {
@@ -73,6 +74,7 @@ class HubManager: NSObject {
             self.connectedHub = Duplo.TrainBase()
         }
         
+        self.isInitializingHub = true
         self.peripheral = peripheral
         centralManager.connect(peripheral, options: nil)
     }
@@ -83,6 +85,7 @@ class HubManager: NSObject {
             self.peripheral = nil
             self.characteristic = nil
             self.connectedHub = nil
+            self.isInitializingHub = false
         }
     }
     
@@ -114,6 +117,13 @@ class HubManager: NSObject {
             
         case .sensorValue(let portId, let value):
             sensorValues[portId] = value
+        }
+        
+        if isInitializingHub {
+            isInitializingHub = false
+            write(data: HubPropertiesCommand(property: .advertisingName, operation: .enableUpdates).data)
+            write(data: HubPropertiesCommand(property: .firmwareVersion, operation: .requestUpdate).data)
+            write(data: HubPropertiesCommand(property: .batteryVoltage, operation: .enableUpdates).data)
         }
     }
     
@@ -188,12 +198,6 @@ extension HubManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if let characteristic = service.characteristics?.first(where: { $0.uuid == MoveHubService.characteristicUuid }) {
             set(characteristic: characteristic)
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                self.write(data: HubPropertiesCommand(property: .advertisingName, operation: .enableUpdates).data)
-                self.write(data: HubPropertiesCommand(property: .firmwareVersion, operation: .requestUpdate).data)
-                self.write(data: HubPropertiesCommand(property: .batteryVoltage, operation: .enableUpdates).data)
-            }
         }
     }
     
