@@ -97,14 +97,20 @@ extension ViewController: HubManagerDelegate {
         resetLabels()
     }
     
-    func didUpdate(hubProperty: HubProperty, value: HubProperty.Value) {
-        switch hubProperty {
-        case .advertisingName:
-            nameLabel.text = value.stringValue
-        case .firmwareVersion:
-            firmwareVersionLabel.text = "F/W: \(value.stringValue)"
-        case .batteryVoltage:
-            batteryLabel.text = "Battery: \(value.stringValue) %"
+    func didUpdate(notification: BoostBLEKit.Notification) {
+        switch notification {
+        case .hubProperty(let hubProperty, let value):
+            switch hubProperty {
+            case .advertisingName:
+                nameLabel.text = value.stringValue
+            case .firmwareVersion:
+                firmwareVersionLabel.text = "F/W: \(value.stringValue)"
+            case .batteryVoltage:
+                batteryLabel.text = "Battery: \(value.stringValue) %"
+            default:
+                break
+            }
+            
         default:
             break
         }

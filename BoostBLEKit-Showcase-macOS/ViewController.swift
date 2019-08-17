@@ -17,6 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var firmwareVersionLabel: NSTextField!
     @IBOutlet weak var batteryLabel: NSTextField!
     @IBOutlet weak var powerLabel: NSTextField!
+    @IBOutlet weak var devicesLabel: NSTextField!
     @IBOutlet weak var commandTextField: NSTextField!
     
     private var hubManager: HubManager!
@@ -104,14 +105,30 @@ extension ViewController: HubManagerDelegate {
         resetLabels()
     }
     
-    func didUpdate(hubProperty: HubProperty, value: HubProperty.Value) {
-        switch hubProperty {
-        case .advertisingName:
-            nameLabel.stringValue = value.stringValue
-        case .firmwareVersion:
-            firmwareVersionLabel.stringValue = "F/W: \(value.stringValue)"
-        case .batteryVoltage:
-            batteryLabel.stringValue = "Battery: \(value.stringValue) %"
+    func didUpdate(notification: BoostBLEKit.Notification) {
+        switch notification {
+        case .hubProperty(let hubProperty, let value):
+            switch hubProperty {
+            case .advertisingName:
+                nameLabel.stringValue = value.stringValue
+            case .firmwareVersion:
+                firmwareVersionLabel.stringValue = "F/W: \(value.stringValue)"
+            case .batteryVoltage:
+                batteryLabel.stringValue = "Battery: \(value.stringValue) %"
+            default:
+                break
+            }
+            
+        case .connected, .disconnected:
+            guard let connectedHub = hubManager.connectedHub else { break }
+            var str = ""
+            for portId in connectedHub.connectedIOs.keys.sorted() {
+                let port = String(format: "%02X", portId)
+                let device = connectedHub.connectedIOs[portId]?.description ?? ""
+                str += "\(port):\t\(device)\n"
+            }
+            devicesLabel.stringValue = str
+            
         default:
             break
         }

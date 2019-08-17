@@ -21,7 +21,7 @@ protocol HubManagerDelegate: class {
     func didConnect(peripheral: CBPeripheral)
     func didFailToConnect(peripheral: CBPeripheral, error: Error?)
     func didDisconnect(peripheral: CBPeripheral, error: Error?)
-    func didUpdate(hubProperty: HubProperty, value: HubProperty.Value)
+    func didUpdate(notification: BoostBLEKit.Notification)
 }
 
 class HubManager: NSObject {
@@ -99,8 +99,8 @@ class HubManager: NSObject {
     private func receive(notification: BoostBLEKit.Notification) {
         print(notification)
         switch notification {
-        case .hubProperty(let hubProperty, let value):
-            delegate?.didUpdate(hubProperty: hubProperty, value: value)
+        case .hubProperty:
+            break
             
         case .connected(let portId, let ioType):
             connectedHub?.connectedIOs[portId] = ioType
@@ -206,6 +206,7 @@ extension HubManager: CBPeripheralDelegate {
         print(">N", data.hexString)
         if let notification = Notification(data: data) {
             receive(notification: notification)
+            delegate?.didUpdate(notification: notification)
         }
     }
 }
