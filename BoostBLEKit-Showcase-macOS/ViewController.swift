@@ -37,6 +37,7 @@ class ViewController: NSViewController {
         nameLabel.stringValue = ""
         firmwareVersionLabel.stringValue = ""
         batteryLabel.stringValue = ""
+        devicesLabel.stringValue = ""
     }
     
     private func setPower(power: Int8) {
