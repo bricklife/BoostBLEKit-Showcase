@@ -23,6 +23,7 @@
 		CB64EA9B20F4C01A0077632B /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */; };
 		CB64EA9F20F4C2450077632B /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; };
 		CB64EAA020F4C2450077632B /* BoostBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CBCDE9892308DE2E00FBCB70 /* BoostBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				CB64EAA020F4C2450077632B /* BoostBLEKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCDE98A2308DE2F00FBCB70 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CBCDE9892308DE2E00FBCB70 /* BoostBLEKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +188,7 @@
 				CB64EA8120F4BE980077632B /* Sources */,
 				CB64EA8220F4BE980077632B /* Frameworks */,
 				CB64EA8320F4BE980077632B /* Resources */,
+				CBCDE98A2308DE2F00FBCB70 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +215,9 @@
 					CB64EA8420F4BE980077632B = {
 						CreatedOnToolsVersion = 9.3.1;
 						SystemCapabilities = {
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
@@ -353,6 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UV6TAX3ANB;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "BoostBLEKit-Showcase-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -373,6 +390,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UV6TAX3ANB;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "BoostBLEKit-Showcase-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
