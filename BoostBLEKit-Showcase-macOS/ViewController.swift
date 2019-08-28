@@ -44,12 +44,12 @@ class ViewController: NSViewController {
         self.power = power
         powerLabel.stringValue = "\(power)"
         
-        guard let hub = hubManager.connectedHub else { return }
-        
         let ports: [BoostBLEKit.Port] = [.A, .B, .C, .D]
-        for port in ports {
-            if let command = hub.motorStartPowerCommand(port: port, power: power) {
-                hubManager.write(data: command.data)
+        for (uuid, hub) in hubManager.connectedHub {
+            for port in ports {
+                if let command = hub.motorStartPowerCommand(port: port, power: power) {
+                    hubManager.write(uuid: uuid, data: command.data)
+                }
             }
         }
     }
@@ -78,14 +78,18 @@ class ViewController: NSViewController {
     
     @IBAction func pushSendButton(_ sender: Any) {
         if let data = Data(hexString: commandTextField.stringValue) {
-            hubManager.write(data: data)
+            for uuid in hubManager.connectedHub.keys {
+                hubManager.write(uuid: uuid, data: data)
+            }
         }
     }
     
     @IBAction func changeColorPopup(_ sender: NSPopUpButton) {
         guard let color = BoostBLEKit.Color(rawValue: UInt8(sender.indexOfSelectedItem)) else { return }
-        if let command = hubManager.connectedHub?.rgbLightColorCommand(color: color) {
-            hubManager.write(data: command.data)
+        for (uuid, hub) in hubManager.connectedHub {
+            if let command = hub.rgbLightColorCommand(color: color) {
+                hubManager.write(uuid: uuid, data: command.data)
+            }
         }
     }
 }
@@ -121,14 +125,15 @@ extension ViewController: HubManagerDelegate {
             }
             
         case .connected, .disconnected:
-            guard let connectedHub = hubManager.connectedHub else { break }
-            var str = ""
-            for portId in connectedHub.connectedIOs.keys.sorted() {
-                let port = String(format: "%02X", portId)
-                let device = connectedHub.connectedIOs[portId]?.description ?? ""
-                str += "\(port):\t\(device)\n"
-            }
-            devicesLabel.stringValue = str
+//            guard let connectedHub = hubManager.connectedHub else { break }
+//            var str = ""
+//            for portId in connectedHub.connectedIOs.keys.sorted() {
+//                let port = String(format: "%02X", portId)
+//                let device = connectedHub.connectedIOs[portId]?.description ?? ""
+//                str += "\(port):\t\(device)\n"
+//            }
+//            devicesLabel.stringValue = str
+            break
             
         default:
             break

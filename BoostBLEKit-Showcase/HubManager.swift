@@ -29,15 +29,15 @@ class HubManager: NSObject {
     weak var delegate: HubManagerDelegate?
     
     private var centralManager: CBCentralManager!
-    private var peripheral: CBPeripheral?
-    private var characteristic: CBCharacteristic?
+    private var peripheral: [UUID: CBPeripheral] = [:]
+    private var characteristic: [UUID: CBCharacteristic] = [:]
     
-    var connectedHub: Hub?
-    var isInitializingHub = false
+    var connectedHub: [UUID: Hub] = [:]
+    var isInitializingHub: [UUID: Bool] = [:]
     var sensorValues: [PortId: Data] = [:]
     
     var isConnectedHub: Bool {
-        return peripheral != nil
+        return peripheral.count > 0
     }
     
     init(delegate: HubManagerDelegate) {
@@ -58,48 +58,53 @@ class HubManager: NSObject {
     }
     
     private func connect(peripheral: CBPeripheral, advertisementData: [String : Any]) {
-        guard self.peripheral == nil else { return }
+        guard self.peripheral[peripheral.identifier] == nil else { return }
         
         guard let manufacturerData = advertisementData["kCBAdvDataManufacturerData"] as? Data else { return }
         guard let hubType = HubType(manufacturerData: manufacturerData) else { return }
         
         switch hubType {
         case .boost:
-            self.connectedHub = Boost.MoveHub()
+            self.connectedHub[peripheral.identifier] = Boost.MoveHub()
         case .boostV1:
-            self.connectedHub = Boost.MoveHubV1()
+            self.connectedHub[peripheral.identifier] = Boost.MoveHubV1()
         case .poweredUp:
-            self.connectedHub = PoweredUp.SmartHub()
+            self.connectedHub[peripheral.identifier] = PoweredUp.SmartHub()
         case .duploTrain:
-            self.connectedHub = Duplo.TrainBase()
+            self.connectedHub[peripheral.identifier] = Duplo.TrainBase()
         case .controlPlus:
-            self.connectedHub = ControlPlus.SmartHub()
+            self.connectedHub[peripheral.identifier] = ControlPlus.SmartHub()
+        case .remoteControl:
+            self.connectedHub[peripheral.identifier] = ControlPlus.SmartHub()
         }
         
-        self.isInitializingHub = true
-        self.peripheral = peripheral
+        self.isInitializingHub[peripheral.identifier] = true
+        self.peripheral[peripheral.identifier] = peripheral
         centralManager.connect(peripheral, options: nil)
     }
     
     func disconnect() {
-        if let peripheral = peripheral {
+        stopScan()
+        for uuid in peripheral.keys {
+            guard let peripheral = peripheral[uuid] else { continue }
             centralManager.cancelPeripheralConnection(peripheral)
-            self.peripheral = nil
-            self.characteristic = nil
-            self.connectedHub = nil
-            self.isInitializingHub = false
+            self.peripheral[uuid] = nil
+            self.characteristic[uuid] = nil
+            self.connectedHub[uuid] = nil
+            self.isInitializingHub[uuid] = false
         }
     }
     
-    private func set(characteristic: CBCharacteristic) {
-        if let peripheral = peripheral, characteristic.properties.contains([.write, .notify]) {
-            self.characteristic = characteristic
+    private func set(peripheral: CBPeripheral, characteristic: CBCharacteristic) {
+        if characteristic.properties.contains([.write, .notify]) {
+            self.characteristic[peripheral.identifier] = characteristic
             peripheral.setNotifyValue(true, for: characteristic)
         }
     }
     
-    private func receive(notification: BoostBLEKit.Notification) {
+    private func receive(peripheral: CBPeripheral, notification: BoostBLEKit.Notification) {
         print(notification)
+        var connectedHub = self.connectedHub[peripheral.identifier]
         switch notification {
         case .hubProperty:
             break
@@ -107,34 +112,40 @@ class HubManager: NSObject {
         case .connected(let portId, let ioType):
             connectedHub?.connectedIOs[portId] = ioType
             if let command = connectedHub?.subscribeCommand(portId: portId) {
-                write(data: command.data)
+                write(peripheral: peripheral, data: command.data)
             }
             
         case .disconnected(let portId):
             connectedHub?.connectedIOs[portId] = nil
             sensorValues[portId] = nil
             if let command = connectedHub?.unsubscribeCommand(portId: portId) {
-                write(data: command.data)
+                write(peripheral: peripheral, data: command.data)
             }
             
         case .sensorValue(let portId, let value):
             sensorValues[portId] = value
         }
         
-        if isInitializingHub {
-            isInitializingHub = false
-            write(data: HubPropertiesCommand(property: .advertisingName, operation: .enableUpdates).data)
-            write(data: HubPropertiesCommand(property: .firmwareVersion, operation: .requestUpdate).data)
-            write(data: HubPropertiesCommand(property: .batteryVoltage, operation: .enableUpdates).data)
+        if isInitializingHub[peripheral.identifier] == true {
+            isInitializingHub[peripheral.identifier] = false
+            write(peripheral: peripheral, data: HubPropertiesCommand(property: .advertisingName, operation: .enableUpdates).data)
+            write(peripheral: peripheral, data: HubPropertiesCommand(property: .firmwareVersion, operation: .requestUpdate).data)
+            write(peripheral: peripheral, data: HubPropertiesCommand(property: .batteryVoltage, operation: .enableUpdates).data)
         }
     }
     
-    func write(data: Data) {
+    func write(peripheral: CBPeripheral, data: Data) {
         print("<W", data.hexString)
-        if let peripheral = peripheral, let characteristic = characteristic {
+        if let characteristic = characteristic[peripheral.identifier] {
             DispatchQueue.main.async {
                 peripheral.writeValue(data, for: characteristic, type: .withResponse)
             }
+        }
+    }
+    
+    func write(uuid: UUID, data: Data) {
+        if let peripheral = peripheral[uuid] {
+            write(peripheral: peripheral, data: data)
         }
     }
 }
@@ -165,7 +176,7 @@ extension HubManager: CBCentralManagerDelegate {
         print("RSSI:", RSSI)
         print("advertisementData:", advertisementData)
         connect(peripheral: peripheral, advertisementData: advertisementData)
-        stopScan()
+//        stopScan()
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
@@ -199,7 +210,7 @@ extension HubManager: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if let characteristic = service.characteristics?.first(where: { $0.uuid == MoveHubService.characteristicUuid }) {
-            set(characteristic: characteristic)
+            set(peripheral: peripheral, characteristic: characteristic)
         }
     }
     
@@ -207,7 +218,7 @@ extension HubManager: CBPeripheralDelegate {
         guard let data = characteristic.value else { return }
         print(">N", data.hexString)
         if let notification = Notification(data: data) {
-            receive(notification: notification)
+            receive(peripheral: peripheral, notification: notification)
             delegate?.didUpdate(notification: notification)
         }
     }

@@ -42,12 +42,12 @@ class ViewController: UIViewController {
         self.power = power
         powerLabel.text = "\(power)"
         
-        guard let hub = hubManager.connectedHub else { return }
-        
         let ports: [BoostBLEKit.Port] = [.A, .B, .C, .D]
-        for port in ports {
-            if let command = hub.motorStartPowerCommand(port: port, power: power) {
-                hubManager.write(data: command.data)
+        for (uuid, hub) in hubManager.connectedHub {
+            for port in ports {
+                if let command = hub.motorStartPowerCommand(port: port, power: power) {
+                    hubManager.write(uuid: uuid, data: command.data)
+                }
             }
         }
     }
@@ -76,8 +76,22 @@ class ViewController: UIViewController {
     
     @IBAction func pushSendButton(_ sender: Any) {
         if let data = commandTextField.text.flatMap(Data.init(hexString:)) {
-            hubManager.write(data: data)
+            for uuid in hubManager.connectedHub.keys {
+                hubManager.write(uuid: uuid, data: data)
+            }
         }
+    }
+
+    var color = 0
+    
+    @IBAction func pushColorButton(_ sender: Any) {
+        guard let color = BoostBLEKit.Color(rawValue: UInt8(self.color)) else { return }
+        for (uuid, hub) in hubManager.connectedHub {
+            if let command = hub.rgbLightColorCommand(color: color) {
+                hubManager.write(uuid: uuid, data: command.data)
+            }
+        }
+        self.color = (self.color + 1) % 11
     }
 }
 
