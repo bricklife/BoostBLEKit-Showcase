@@ -137,9 +137,7 @@ class HubManager: NSObject {
     func write(peripheral: CBPeripheral, data: Data) {
         print("<W", data.hexString)
         if let characteristic = characteristic[peripheral.identifier] {
-            DispatchQueue.main.async {
-                peripheral.writeValue(data, for: characteristic, type: .withResponse)
-            }
+            peripheral.writeValue(data, for: characteristic, type: .withResponse)
         }
     }
     
