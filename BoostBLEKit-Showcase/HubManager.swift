@@ -70,11 +70,11 @@ class HubManager: NSObject {
             self.connectedHub[peripheral.identifier] = Boost.MoveHubV1()
         case .poweredUp:
             self.connectedHub[peripheral.identifier] = PoweredUp.SmartHub()
+        case .remoteControl:
+            self.connectedHub[peripheral.identifier] = PoweredUp.RemoteControl()
         case .duploTrain:
             self.connectedHub[peripheral.identifier] = Duplo.TrainBase()
         case .controlPlus:
-            self.connectedHub[peripheral.identifier] = ControlPlus.SmartHub()
-        case .remoteControl:
             self.connectedHub[peripheral.identifier] = ControlPlus.SmartHub()
         }
         
