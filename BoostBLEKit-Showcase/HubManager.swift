@@ -88,10 +88,6 @@ class HubManager: NSObject {
         for uuid in peripheral.keys {
             guard let peripheral = peripheral[uuid] else { continue }
             centralManager.cancelPeripheralConnection(peripheral)
-            self.peripheral[uuid] = nil
-            self.characteristic[uuid] = nil
-            self.connectedHub[uuid] = nil
-            self.isInitializingHub[uuid] = false
         }
     }
     
@@ -187,6 +183,12 @@ extension HubManager: CBCentralManagerDelegate {
         if let error = error {
             print(#function, peripheral, error)
         }
+        
+        let uuid = peripheral.identifier
+        self.connectedHub[uuid] = nil
+        self.isInitializingHub[uuid] = false
+        self.peripheral[uuid] = nil
+        
         delegate?.didFailToConnect(peripheral: peripheral, error: error)
     }
     
@@ -194,6 +196,13 @@ extension HubManager: CBCentralManagerDelegate {
         if let error = error {
             print(#function, peripheral, error)
         }
+        
+        let uuid = peripheral.identifier
+        self.connectedHub[uuid] = nil
+        self.isInitializingHub[uuid] = false
+        self.peripheral[uuid] = nil
+        self.characteristic[uuid] = nil
+        
         delegate?.didDisconnect(peripheral: peripheral, error: error)
     }
 }
