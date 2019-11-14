@@ -74,6 +74,8 @@ class HubManager: NSObject {
             self.connectedHub = Duplo.TrainBase()
         case .controlPlus:
             self.connectedHub = ControlPlus.SmartHub()
+        case .remoteControl:
+            self.connectedHub = PoweredUp.RemoteControl()
         }
         
         self.isInitializingHub = true
