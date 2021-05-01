@@ -16,7 +16,7 @@ struct MoveHubService {
     static let characteristicUuid = CBUUID(string: GATT.characteristicUuid)
 }
 
-protocol HubManagerDelegate: class {
+protocol HubManagerDelegate: AnyObject {
     
     func didConnect(peripheral: CBPeripheral)
     func didFailToConnect(peripheral: CBPeripheral, error: Error?)
