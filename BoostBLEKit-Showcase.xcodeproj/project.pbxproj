@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,10 +20,8 @@
 		CB64EA9620F4BFE70077632B /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */; };
 		CB64EA9720F4BFE80077632B /* HubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64EA6920F4B3FD0077632B /* HubManager.swift */; };
 		CB64EA9820F4BFE80077632B /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */; };
-		CB64EA9B20F4C01A0077632B /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */; };
-		CB64EA9F20F4C2450077632B /* BoostBLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; };
-		CB64EAA020F4C2450077632B /* BoostBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CBCDE9892308DE2E00FBCB70 /* BoostBLEKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CBABA4AF263D9D9A00E55629 /* BoostBLEKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBABA4AE263D9D9A00E55629 /* BoostBLEKit */; };
+		CBABA4B1263D9DA100E55629 /* BoostBLEKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBABA4B0263D9DA100E55629 /* BoostBLEKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +31,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CB64EAA020F4C2450077632B /* BoostBLEKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,7 +41,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CBCDE9892308DE2E00FBCB70 /* BoostBLEKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,11 +63,8 @@
 		CB64EA8E20F4BE990077632B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB64EA9020F4BE990077632B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB64EA9920F4BFFE0077632B /* BoostBLEKit-Showcase-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BoostBLEKit-Showcase-macOS.entitlements"; sourceTree = "<group>"; };
-		CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB64EA9C20F4C11C0077632B /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB83BCF820ED7C8F00AA67E1 /* BoostBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoostBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB83BCFC20ED8AB300AA67E1 /* Data+HexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+HexString.swift"; sourceTree = "<group>"; };
+		CBABA4AC263D9D2D00E55629 /* BoostBLEKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BoostBLEKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB64EA9F20F4C2450077632B /* BoostBLEKit.framework in Frameworks */,
+				CBABA4AF263D9D9A00E55629 /* BoostBLEKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB64EA9B20F4C01A0077632B /* BoostBLEKit.framework in Frameworks */,
+				CBABA4B1263D9DA100E55629 /* BoostBLEKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,12 +116,12 @@
 		CB83BCD120ED7AA100AA67E1 = {
 			isa = PBXGroup;
 			children = (
-				CB64EA9E20F4C2450077632B /* BoostBLEKit.framework */,
+				CBABA4AC263D9D2D00E55629 /* BoostBLEKit */,
 				CB83BCDC20ED7AA100AA67E1 /* BoostBLEKit-Showcase */,
 				CB64EA7020F4BDDD0077632B /* BoostBLEKit-Showcase-iOS */,
 				CB64EA8620F4BE980077632B /* BoostBLEKit-Showcase-macOS */,
 				CB83BCDB20ED7AA100AA67E1 /* Products */,
-				CB83BCF620ED7C6B00AA67E1 /* Frameworks */,
+				CBABA4AD263D9D9A00E55629 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,12 +143,9 @@
 			path = "BoostBLEKit-Showcase";
 			sourceTree = "<group>";
 		};
-		CB83BCF620ED7C6B00AA67E1 /* Frameworks */ = {
+		CBABA4AD263D9D9A00E55629 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CB64EA9C20F4C11C0077632B /* BoostBLEKit.framework */,
-				CB64EA9A20F4C01A0077632B /* BoostBLEKit.framework */,
-				CB83BCF820ED7C8F00AA67E1 /* BoostBLEKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,6 +167,9 @@
 			dependencies = (
 			);
 			name = "BoostBLEKit-Showcase-iOS";
+			packageProductDependencies = (
+				CBABA4AE263D9D9A00E55629 /* BoostBLEKit */,
+			);
 			productName = "BoostBLEKit-Showcase-iOS";
 			productReference = CB64EA6F20F4BDDD0077632B /* BoostBLEKit-Showcase-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -195,6 +188,9 @@
 			dependencies = (
 			);
 			name = "BoostBLEKit-Showcase-macOS";
+			packageProductDependencies = (
+				CBABA4B0263D9DA100E55629 /* BoostBLEKit */,
+			);
 			productName = "BoostBLEKit-Showcase-macOS";
 			productReference = CB64EA8520F4BE980077632B /* BoostBLEKit-Showcase-macOS.app */;
 			productType = "com.apple.product-type.application";
@@ -548,6 +544,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CBABA4AE263D9D9A00E55629 /* BoostBLEKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BoostBLEKit;
+		};
+		CBABA4B0263D9DA100E55629 /* BoostBLEKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BoostBLEKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CB83BCD220ED7AA100AA67E1 /* Project object */;
 }
