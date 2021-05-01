@@ -76,6 +76,8 @@ class HubManager: NSObject {
             self.connectedHub = ControlPlus.SmartHub()
         case .remoteControl:
             self.connectedHub = PoweredUp.RemoteControl()
+        case .mario:
+            self.connectedHub = SuperMario.Mario()
         }
         
         self.isInitializingHub = true
