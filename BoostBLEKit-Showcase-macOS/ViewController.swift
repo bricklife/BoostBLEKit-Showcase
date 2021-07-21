@@ -111,11 +111,11 @@ extension ViewController: HubManagerDelegate {
         case .hubProperty(let hubProperty, let value):
             switch hubProperty {
             case .advertisingName:
-                nameLabel.stringValue = value.stringValue
+                nameLabel.stringValue = value.description
             case .firmwareVersion:
-                firmwareVersionLabel.stringValue = "F/W: \(value.stringValue)"
+                firmwareVersionLabel.stringValue = "F/W: \(value)"
             case .batteryVoltage:
-                batteryLabel.stringValue = "Battery: \(value.stringValue) %"
+                batteryLabel.stringValue = "Battery: \(value) %"
             default:
                 break
             }
