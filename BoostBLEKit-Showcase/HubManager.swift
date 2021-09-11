@@ -24,6 +24,13 @@ protocol HubManagerDelegate: AnyObject {
     func didUpdate(notification: BoostBLEKit.Notification)
 }
 
+class UnknownHub: Hub {
+    
+    public init() {}
+    public var connectedIOs: [PortId: IOType] = [:]
+    public let portMap: [BoostBLEKit.Port: PortId] = [:]
+}
+
 class HubManager: NSObject {
     
     weak var delegate: HubManagerDelegate?
@@ -61,7 +68,10 @@ class HubManager: NSObject {
         guard self.peripheral == nil else { return }
         
         guard let manufacturerData = advertisementData["kCBAdvDataManufacturerData"] as? Data else { return }
-        guard let hubType = HubType(manufacturerData: manufacturerData) else { return }
+        guard manufacturerData.count == 8 else { return }
+        guard manufacturerData[0] == 0x97, manufacturerData[1] == 0x03 else { return }
+        
+        let hubType = HubType(manufacturerData: manufacturerData)
         
         switch hubType {
         case .boost:
@@ -80,6 +90,8 @@ class HubManager: NSObject {
             self.connectedHub = SuperMario.Mario()
         case .luigi:
             self.connectedHub = SuperMario.Luigi()
+        case .none:
+            self.connectedHub = UnknownHub()
         }
         
         self.isInitializingHub = true
