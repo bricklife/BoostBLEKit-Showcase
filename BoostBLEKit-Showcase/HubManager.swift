@@ -26,9 +26,14 @@ protocol HubManagerDelegate: AnyObject {
 
 class UnknownHub: Hub {
     
-    public init() {}
-    public var connectedIOs: [PortId: IOType] = [:]
-    public let portMap: [BoostBLEKit.Port: PortId] = [:]
+    let systemTypeAndDeviceNumber: UInt8
+    
+    init(systemTypeAndDeviceNumber: UInt8) {
+        self.systemTypeAndDeviceNumber = systemTypeAndDeviceNumber
+    }
+    
+    var connectedIOs: [PortId: IOType] = [:]
+    let portMap: [BoostBLEKit.Port: PortId] = [:]
 }
 
 class HubManager: NSObject {
@@ -71,6 +76,9 @@ class HubManager: NSObject {
         guard manufacturerData.count == 8 else { return }
         guard manufacturerData[0] == 0x97, manufacturerData[1] == 0x03 else { return }
         
+        let systemTypeAndDeviceNumber = manufacturerData[3]
+        print("System Type and Device Number:", String(format: "0x%02x", systemTypeAndDeviceNumber))
+        
         let hubType = HubType(manufacturerData: manufacturerData)
         
         switch hubType {
@@ -91,7 +99,7 @@ class HubManager: NSObject {
         case .luigi:
             self.connectedHub = SuperMario.Luigi()
         case .none:
-            self.connectedHub = UnknownHub()
+            self.connectedHub = UnknownHub(systemTypeAndDeviceNumber: systemTypeAndDeviceNumber)
         }
         
         self.isInitializingHub = true
