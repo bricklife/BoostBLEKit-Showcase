@@ -76,9 +76,6 @@ class HubManager: NSObject {
         guard manufacturerData.count == 8 else { return }
         guard manufacturerData[0] == 0x97, manufacturerData[1] == 0x03 else { return }
         
-        let systemTypeAndDeviceNumber = manufacturerData[3]
-        print("System Type and Device Number:", String(format: "0x%02x", systemTypeAndDeviceNumber))
-        
         let hubType = HubType(manufacturerData: manufacturerData)
         
         switch hubType {
@@ -99,6 +96,8 @@ class HubManager: NSObject {
         case .luigi:
             self.connectedHub = SuperMario.Luigi()
         case .none:
+            let systemTypeAndDeviceNumber = manufacturerData[3]
+            print(String(format: "Unknown Hub (System Type and Device Number: 0x%02x)", systemTypeAndDeviceNumber))
             self.connectedHub = UnknownHub(systemTypeAndDeviceNumber: systemTypeAndDeviceNumber)
         }
         
