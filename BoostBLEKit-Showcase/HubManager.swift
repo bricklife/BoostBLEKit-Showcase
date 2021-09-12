@@ -95,6 +95,8 @@ class HubManager: NSObject {
             self.connectedHub = SuperMario.Mario()
         case .luigi:
             self.connectedHub = SuperMario.Luigi()
+        case .spikeEssential:
+            self.connectedHub = Spike.EssentialHub()
         case .none:
             let systemTypeAndDeviceNumber = manufacturerData[3]
             print(String(format: "Unknown Hub (System Type and Device Number: 0x%02x)", systemTypeAndDeviceNumber))
