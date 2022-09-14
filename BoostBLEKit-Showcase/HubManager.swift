@@ -95,6 +95,8 @@ class HubManager: NSObject {
             self.connectedHub = SuperMario.Mario()
         case .luigi:
             self.connectedHub = SuperMario.Luigi()
+        case .peach:
+            self.connectedHub = SuperMario.Peach()
         case .spikeEssential:
             self.connectedHub = Spike.EssentialHub()
         case .none:
