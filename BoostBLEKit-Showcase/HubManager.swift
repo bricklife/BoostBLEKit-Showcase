@@ -45,7 +45,6 @@ class HubManager: NSObject {
     private var characteristic: CBCharacteristic?
     
     var connectedHub: Hub?
-    var isInitializingHub = false
     var sensorValues: [PortId: Data] = [:]
     
     var isConnectedHub: Bool {
@@ -105,7 +104,6 @@ class HubManager: NSObject {
             self.connectedHub = UnknownHub(systemTypeAndDeviceNumber: systemTypeAndDeviceNumber)
         }
         
-        self.isInitializingHub = true
         self.peripheral = peripheral
         centralManager.connect(peripheral, options: nil)
     }
@@ -116,7 +114,6 @@ class HubManager: NSObject {
             self.peripheral = nil
             self.characteristic = nil
             self.connectedHub = nil
-            self.isInitializingHub = false
         }
     }
     
@@ -124,6 +121,12 @@ class HubManager: NSObject {
         if let peripheral = peripheral, characteristic.properties.contains([.write, .notify]) {
             self.characteristic = characteristic
             peripheral.setNotifyValue(true, for: characteristic)
+
+            DispatchQueue.main.async { [weak self] in
+                self?.write(data: HubPropertiesCommand(property: .advertisingName, operation: .enableUpdates).data)
+                self?.write(data: HubPropertiesCommand(property: .firmwareVersion, operation: .requestUpdate).data)
+                self?.write(data: HubPropertiesCommand(property: .batteryVoltage, operation: .enableUpdates).data)
+            }
         }
     }
     
@@ -148,13 +151,6 @@ class HubManager: NSObject {
             
         case .sensorValue(let portId, let value):
             sensorValues[portId] = value
-        }
-        
-        if isInitializingHub {
-            isInitializingHub = false
-            write(data: HubPropertiesCommand(property: .advertisingName, operation: .enableUpdates).data)
-            write(data: HubPropertiesCommand(property: .firmwareVersion, operation: .requestUpdate).data)
-            write(data: HubPropertiesCommand(property: .batteryVoltage, operation: .enableUpdates).data)
         }
     }
     
